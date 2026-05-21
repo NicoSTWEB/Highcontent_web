@@ -5,6 +5,7 @@ import { IconArrow, IconCheck, IconX, IconChevron } from '@/components/icons';
 import { ContactModal } from '@/components/contact-modal';
 import { PricingCategoryPicker } from '@/components/pricing-category-picker';
 import { PRICING_CATEGORIES } from '@/data/categories';
+import { OUTSETA_PLAN_UIDS, openOutsetaRegister } from '@/lib/outseta';
 import { Reveal } from '@/components/reveal';
 
 // ============================================================
@@ -77,25 +78,13 @@ const PLANS = [
   },
 ];
 
+const CUSTOM_PLAN = PLANS.find((p) => p.id === 'custom');
+
 export default function Pricing({ palette }) {
   const [expanded, setExpanded] = useState({});
   const [contactOpen, setContactOpen] = useState(false);
-  const [contactPlan, setContactPlan] = useState(null);
-  const [contactCategory, setContactCategory] = useState(null);
   const [categoryPickerFor, setCategoryPickerFor] = useState(null);
   const toggle = (id) => setExpanded(s => ({ ...s, [id]: !s[id] }));
-
-  const openContact = (plan, category = null) => {
-    setContactPlan(plan);
-    setContactCategory(category);
-    setContactOpen(true);
-  };
-
-  const closeContact = () => {
-    setContactOpen(false);
-    setContactPlan(null);
-    setContactCategory(null);
-  };
 
   return (
     <section id="pricing" className="py-16 lg:py-20">
@@ -153,10 +142,7 @@ export default function Pricing({ palette }) {
                   <div className="my-6 h-px bg-line"></div>
 
                   {showCategories ? (
-                    <PricingCategoryPicker
-                      categories={PRICING_CATEGORIES}
-                      onSelect={(cat) => openContact(p, cat)}
-                    />
+                    <PricingCategoryPicker categories={PRICING_CATEGORIES} />
                   ) : (
                     <>
                       <div className="text-[12px] uppercase tracking-[0.18em] font-semibold text-ink/75 mb-3">What you get inside</div>
@@ -212,11 +198,19 @@ export default function Pricing({ palette }) {
                       >
                         {p.cta} <IconArrow size={15}/>
                       </button>
+                    ) : p.id === 'pro' ? (
+                      <button
+                        type="button"
+                        onClick={() => openOutsetaRegister(OUTSETA_PLAN_UIDS.pro)}
+                        className="btn-pill mt-auto w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium bg-ink text-white"
+                      >
+                        {p.cta} <IconArrow size={15}/>
+                      </button>
                     ) : (
                       <button
                         type="button"
-                        onClick={() => openContact(p)}
-                        className={`btn-pill mt-auto w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium ${p.featured ? 'bg-ink text-white' : 'border border-ink text-ink'}`}
+                        onClick={() => setContactOpen(true)}
+                        className="btn-pill mt-auto w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium border border-ink text-ink"
                       >
                         {p.cta} <IconArrow size={15}/>
                       </button>
@@ -235,9 +229,8 @@ export default function Pricing({ palette }) {
 
       <ContactModal
         open={contactOpen}
-        onClose={closeContact}
-        plan={contactPlan}
-        category={contactCategory}
+        onClose={() => setContactOpen(false)}
+        plan={CUSTOM_PLAN}
       />
     </section>
   );

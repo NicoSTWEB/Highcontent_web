@@ -1,4 +1,5 @@
 import { DM_Sans, Instrument_Serif } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -24,7 +25,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${dmSans.variable} ${instrumentSerif.variable}`}>
-      <body className="overflow-x-hidden font-sans antialiased">{children}</body>
+      <body className="overflow-x-hidden font-sans antialiased">
+        <Script id="outseta-options" strategy="beforeInteractive">
+          {`var o_options = { domain: 'highcontent.outseta.com', monitorDom: true };`}
+        </Script>
+        <Script
+          id="outseta-script"
+          src="https://cdn.outseta.com/outseta.min.js"
+          strategy="beforeInteractive"
+          data-options="o_options"
+        />
+        {children}
+      </body>
     </html>
   );
 }
