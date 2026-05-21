@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+import { ContactModal } from '@/components/contact-modal';
 import Header from '@/components/sections/header';
 import Hero from '@/components/sections/hero';
 import DashboardPreview from '@/components/sections/dashboard-preview';
@@ -37,15 +39,16 @@ const PALETTES = [
 
 export default function Page() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const [contactOpen, setContactOpen] = useState(false);
   const palette = t.palette || PALETTES[0];
 
   return (
     <div className="relative">
-      <Header palette={palette} />
+      <Header palette={palette} onOpenContact={() => setContactOpen(true)} />
       <main>
         <Hero palette={palette} />
         <DashboardPreview />
-        <Categories />
+        <Categories onOpenContact={() => setContactOpen(true)} />
         <Benefits />
         <Pricing palette={palette} />
         <About />
@@ -54,6 +57,12 @@ export default function Page() {
         <FinalCTA palette={palette} />
       </main>
       <Footer />
+
+      <ContactModal
+        open={contactOpen}
+        onClose={() => setContactOpen(false)}
+        variant="contact"
+      />
 
       <TweaksPanel title="Tweaks">
         <TweakSection label="Brand gradient">

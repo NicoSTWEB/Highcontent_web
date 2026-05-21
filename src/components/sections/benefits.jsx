@@ -49,8 +49,8 @@ const BeforeAfter = () => {
           </div>
           <ul className="px-3 sm:px-5 py-3">
             {before.map((t, i) => (
-              <li key={t} className={`flex items-start gap-4 px-4 py-4 rounded-xl ${i % 2 ? 'bg-bg2/60' : ''}`}>
-                <span className="mt-0.5 w-7 h-7 rounded-full grid place-items-center shrink-0 text-rose-500 border border-rose-100"
+              <li key={t} className={`flex items-center gap-4 px-4 py-4 rounded-xl ${i % 2 ? 'bg-bg2/60' : ''}`}>
+                <span className="w-7 h-7 rounded-full grid place-items-center shrink-0 text-rose-500 border border-rose-100"
                       style={{background:'linear-gradient(135deg, #fff1f2, #fee2e2)'}}><IconX size={14}/></span>
                 <span className="text-[15.5px] text-ink/80 leading-snug">{t}</span>
               </li>
@@ -70,8 +70,8 @@ const BeforeAfter = () => {
           </div>
           <ul className="px-3 sm:px-5 py-3 relative">
             {after.map((t, i) => (
-              <li key={t} className={`flex items-start gap-4 px-4 py-4 rounded-xl ${i % 2 ? 'bg-emerald-50/40' : ''}`}>
-                <span className="mt-0.5 w-7 h-7 rounded-full bg-emerald-50 grid place-items-center shrink-0 text-emerald-600"><IconCheck size={14}/></span>
+              <li key={t} className={`flex items-center gap-4 px-4 py-4 rounded-xl ${i % 2 ? 'bg-emerald-50/40' : ''}`}>
+                <span className="w-7 h-7 rounded-full bg-emerald-50 grid place-items-center shrink-0 text-emerald-600"><IconCheck size={14}/></span>
                 <span className="text-[15.5px] text-ink leading-snug font-medium">{t}</span>
               </li>
             ))}

@@ -27,6 +27,17 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+a,
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]) {
+  cursor: pointer;
+}
+
+button:disabled,
+[role="button"][aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
 .italic-serif {
   font-family: var(--font-instrument-serif), serif;
   font-style: italic;
@@ -142,13 +153,10 @@ body {
 
 .access-btn {
   transition:
-    transform 200ms ease,
     box-shadow 200ms ease,
-    background 300ms ease,
     color 300ms ease;
 }
 .access-btn:hover {
-  transform: translateY(-1px);
   color: #fff;
   background: linear-gradient(95deg, #6d5fd1 0%, #d97ab1 100%);
   box-shadow: 0 8px 22px -10px rgba(196, 181, 253, 0.9);
@@ -156,14 +164,29 @@ body {
 
 .btn-pill {
   transition:
-    transform 200ms ease,
     box-shadow 200ms ease,
-    background 300ms ease;
+    border-color 200ms ease,
+    color 300ms ease;
 }
 .btn-pill:hover {
-  transform: translateY(-1px);
+  color: #fff;
   box-shadow: 0 8px 22px -10px rgba(196, 181, 253, 0.9);
   background: linear-gradient(95deg, #0a0a0a 35%, #6d5fd1 75%, #d97ab1 100%);
+}
+
+button,
+a.btn-pill,
+.access-btn {
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    color 300ms ease;
+}
+
+button:hover,
+a.btn-pill:hover,
+.access-btn:hover {
+  border-color: #fff;
 }
 
 .card-img-hover {

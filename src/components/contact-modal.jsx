@@ -4,6 +4,64 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { IconArrow, IconClose } from '@/components/icons';
 
+function ContactDetails() {
+  const items = [
+    {
+      label: 'Email',
+      value: 'hello@highcontent.io',
+      href: 'mailto:hello@highcontent.io',
+    },
+    {
+      label: 'Instagram',
+      value: '@highcontent',
+      href: '#',
+    },
+    {
+      label: 'Book a call',
+      value: 'Schedule a 15-min intro',
+      href: '#',
+    },
+  ];
+
+  return (
+    <div className="flex flex-col h-full">
+      <img src="/assets/highcontent-logo.png" alt="Highcontent" className="h-9 w-auto object-contain" />
+      <p className="mt-5 text-[15px] text-ink/60 leading-[1.55] max-w-[320px]">
+        Ready-to-post social media content and realistic AI assets for professionals. Questions about plans, niches, or custom work — we&apos;re here to help.
+      </p>
+
+      <div className="my-6 h-px bg-line" />
+
+      <div className="text-[12px] uppercase tracking-[0.18em] font-semibold text-ink/75 mb-4">
+        Get in touch
+      </div>
+      <ul className="space-y-4">
+        {items.map((item) => (
+          <li key={item.label}>
+            <div className="text-[11px] uppercase tracking-[0.16em] font-medium text-ink/45 mb-1">
+              {item.label}
+            </div>
+            <a href={item.href} className="text-[15px] font-medium text-ink hover:text-ink/70 transition">
+              {item.value}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-auto pt-8">
+        <div className="rounded-[16px] border border-line bg-white p-4">
+          <div className="text-[12px] uppercase tracking-[0.16em] font-semibold text-ink/55 mb-1">
+            Response time
+          </div>
+          <p className="text-[14px] text-ink/70 leading-relaxed">
+            We typically reply within 1–2 business days.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function PlanBadge({ planId }) {
   if (planId === 'starter') {
     return (
@@ -105,17 +163,20 @@ function PlanDetails({ plan, category }) {
   );
 }
 
-function ContactForm({ onClose, plan, category }) {
+function ContactForm({ onClose, plan, category, variant = 'plan' }) {
   const [submitted, setSubmitted] = useState(false);
+  const isContact = variant === 'contact';
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
   };
 
-  const nicheLine = category
-    ? `${plan.name} plan · ${category.title}`
-    : `${plan.name} plan`;
+  const nicheLine = !isContact && plan
+    ? category
+      ? `${plan.name} plan · ${category.title}`
+      : `${plan.name} plan`
+    : null;
 
   if (submitted) {
     return (
@@ -143,13 +204,19 @@ function ContactForm({ onClose, plan, category }) {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col h-full">
-      <h3 className="font-bold text-[22px] tracking-tight text-ink">Get started</h3>
+      <h3 className="font-bold text-[22px] tracking-tight text-ink">
+        {isContact ? 'Contact us' : 'Get started'}
+      </h3>
       <p className="mt-1.5 text-[14px] text-ink/55 leading-relaxed">
-        {category
-          ? `Complete the form to access the ${category.title} library on the ${plan.name} plan.`
-          : 'Tell us about your business and we\'ll tailor a custom package for you.'}
+        {isContact
+          ? 'Send us a message and we\'ll help you find the right plan or answer any questions.'
+          : category
+            ? `Complete the form to access the ${category.title} library on the ${plan.name} plan.`
+            : plan?.id === 'pro'
+              ? 'Complete the form to get started with the Pro plan — all niches included.'
+              : 'Tell us about your business and we\'ll tailor a custom package for you.'}
       </p>
-      <p className="mt-2 text-[12px] font-medium text-ink/45">{nicheLine}</p>
+      {nicheLine ? <p className="mt-2 text-[12px] font-medium text-ink/45">{nicheLine}</p> : null}
 
       <div className="mt-6 space-y-4 flex-1">
         <div>
@@ -188,12 +255,20 @@ function ContactForm({ onClose, plan, category }) {
             rows={4}
             className={`${fieldClass} h-auto py-3 resize-none`}
             placeholder={
-              category
-                ? `I'm interested in the ${category.title} content library.`
-                : 'What are you looking for in a custom package?'
+              isContact
+                ? 'How can we help you?'
+                : category
+                  ? `I'm interested in the ${category.title} content library.`
+                  : plan?.id === 'pro'
+                    ? 'I\'d like to get started with the Pro plan.'
+                    : 'What are you looking for in a custom package?'
             }
             defaultValue={
-              category ? `I'd like to get started with the ${category.title} library.` : ''
+              category
+                ? `I'd like to get started with the ${category.title} library.`
+                : plan?.id === 'pro'
+                  ? 'I\'d like to get started with the Pro plan.'
+                  : ''
             }
           />
         </div>
@@ -215,8 +290,9 @@ function ContactForm({ onClose, plan, category }) {
   );
 }
 
-export function ContactModal({ open, onClose, plan, category }) {
+export function ContactModal({ open, onClose, plan, category, variant = 'plan' }) {
   const [mounted, setMounted] = useState(false);
+  const isContact = variant === 'contact';
 
   useEffect(() => setMounted(true), []);
 
@@ -234,7 +310,7 @@ export function ContactModal({ open, onClose, plan, category }) {
     };
   }, [open, onClose]);
 
-  if (!mounted || !open || !plan) return null;
+  if (!mounted || !open || (!isContact && !plan)) return null;
 
   return createPortal(
     <div
@@ -262,12 +338,16 @@ export function ContactModal({ open, onClose, plan, category }) {
         <div className="grid lg:grid-cols-2 overflow-y-auto flex-1 min-h-0">
           <div className="p-7 sm:p-8 lg:p-9 bg-bg2/60 border-b lg:border-b-0 lg:border-r border-line">
             <h2 id="contact-modal-title" className="sr-only">
-              {category ? `${category.title} — ${plan.name}` : `Contact us — ${plan.name}`}
+              {isContact
+                ? 'Contact Highcontent'
+                : category
+                  ? `${category.title} — ${plan.name}`
+                  : `Contact us — ${plan.name}`}
             </h2>
-            <PlanDetails plan={plan} category={category} />
+            {isContact ? <ContactDetails /> : <PlanDetails plan={plan} category={category} />}
           </div>
           <div className="p-7 sm:p-8 lg:p-9">
-            <ContactForm onClose={onClose} plan={plan} category={category} />
+            <ContactForm onClose={onClose} plan={plan} category={category} variant={variant} />
           </div>
         </div>
       </div>

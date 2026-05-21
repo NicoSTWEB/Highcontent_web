@@ -2,16 +2,9 @@
 
 import { IconArrow } from '@/components/icons';
 
-export function PricingCategoryPicker({ categories, onSelect, onBack }) {
+export function PricingCategoryPicker({ categories, onSelect }) {
   return (
     <div className="flex flex-col flex-1 min-h-0">
-      <button
-        type="button"
-        onClick={onBack}
-        className="mb-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink/55 hover:text-ink transition self-start"
-      >
-        ← Back to plan details
-      </button>
       <p className="text-[12px] uppercase tracking-[0.18em] font-semibold text-ink/75 mb-3">
         Choose your niche
       </p>
@@ -36,12 +29,9 @@ export function PricingCategoryPicker({ categories, onSelect, onBack }) {
               }}
             />
             <div className="absolute inset-x-0 bottom-0 p-2.5 flex flex-col gap-2 text-white">
-              <div className="min-w-0">
-                <div className="text-[13px] font-bold tracking-tight leading-tight">{c.title}</div>
-                <div className="text-[10px] text-white/75 mt-0.5 line-clamp-2 leading-snug">{c.sub}</div>
-              </div>
+              <div className="text-[13px] font-bold tracking-tight leading-tight">{c.title}</div>
               <span className="inline-flex items-center justify-center gap-1 bg-ink text-white px-2.5 h-7 rounded-full text-[10px] font-semibold w-full">
-                Access <IconArrow size={11} />
+                Select <IconArrow size={11} />
               </span>
             </div>
           </button>

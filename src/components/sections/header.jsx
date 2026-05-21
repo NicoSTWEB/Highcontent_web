@@ -6,7 +6,7 @@ import { IconArrow, IconClose, IconMenu } from '@/components/icons';
 // ============================================================
 // HEADER
 // ============================================================
-export default function Header({ palette }) {
+export default function Header({ palette, onOpenContact }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -73,7 +73,18 @@ export default function Header({ palette }) {
 
         <nav className="hidden md:flex items-center gap-9 text-[14.5px] text-ink/80">
           {nav.map(n => (
-            <a key={n.id} href={`#${n.id}`} className="nav-link font-medium hover:text-ink">{n.label}</a>
+            n.id === 'contact' ? (
+              <button
+                key={n.id}
+                type="button"
+                onClick={onOpenContact}
+                className="nav-link font-medium hover:text-ink"
+              >
+                {n.label}
+              </button>
+            ) : (
+              <a key={n.id} href={`#${n.id}`} className="nav-link font-medium hover:text-ink">{n.label}</a>
+            )
           ))}
         </nav>
 
@@ -90,10 +101,27 @@ export default function Header({ palette }) {
       {open && (
         <div className="md:hidden mt-2 mx-4 bg-white border border-line rounded-2xl shadow-lift">
           <div className="px-6 py-4 flex flex-col gap-3">
-            {nav.map(n => <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="py-2 font-medium">{n.label}</a>)}
+            {nav.map(n => (
+              n.id === 'contact' ? (
+                <button
+                  key={n.id}
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    onOpenContact?.();
+                  }}
+                  className="py-2 font-medium text-left"
+                >
+                  {n.label}
+                </button>
+              ) : (
+                <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="py-2 font-medium">{n.label}</a>
+              )
+            ))}
           </div>
         </div>
       )}
+
     </header>
   );
 };

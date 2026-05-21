@@ -8,7 +8,7 @@ import { PRICING_CATEGORIES as categories } from '@/data/categories';
 // CATEGORIES
 // ============================================================
 
-export default function Categories() {
+export default function Categories({ onOpenContact }) {
   return (
   <section id="categories" className="bg-white py-16 lg:py-20">
     <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
@@ -43,7 +43,16 @@ export default function Categories() {
       </Reveal>
 
       <Reveal className="mt-12 text-center">
-        <p className="text-[14px] text-ink/55">Don't see your niche? <a href="#contact" className="font-semibold text-ink hover:underline">Tell us what you need →</a></p>
+        <p className="text-[14px] text-ink/55">
+          Don&apos;t see your niche?{' '}
+          <button
+            type="button"
+            onClick={onOpenContact}
+            className="font-semibold text-ink hover:underline"
+          >
+            Tell us what you need →
+          </button>
+        </p>
       </Reveal>
     </div>
   </section>

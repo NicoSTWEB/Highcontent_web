@@ -7,90 +7,82 @@ import { PricingCategoryPicker } from '@/components/pricing-category-picker';
 import { PRICING_CATEGORIES } from '@/data/categories';
 import { Reveal } from '@/components/reveal';
 
-const PLANS_WITH_CATEGORIES = ['starter', 'pro'];
-
 // ============================================================
 // PRICING
 // ============================================================
-const planFeatures = (cycleMult) => {
-  const f = (eur) => `€${Math.round(eur * cycleMult)}`;
-  return [
-    {
-      id: 'starter',
-      name: 'Starter',
-      tag: 'For Dentists, Estheticians & Business Coaches',
-      price: f(99),
-      cycle: '/month',
-      desc: 'Social Media Content System',
-      cta: 'Get Started',
-      featured: false,
-      inside: ['120 Feed Posts','54 Story Designs','24 Highlight Covers','6 Feed Design Systems','6 Content Collections','100+ Realistic Photo & Video Assets'],
-      updates: ['120 New Posts','New Story Content','1 New Design Collection'],
-      pros: [
-        'Fast content creation system',
-        'Edit easily in Canva',
-        'Post professional content in minutes',
-        'Visually consistent branding',
-        'Unlimited downloads',
-        'Multi-platform: IG, FB, LinkedIn, Pinterest',
-        'Personal & business use',
-        'Customer support',
-      ],
-      cons: ['Not for client work','Not for resale'],
-      ideal: 'Professionals growing their brand without hiring a designer.',
-    },
-    {
-      id: 'pro',
-      name: 'Pro',
-      tag: 'For Social Media Managers & Agencies',
-      price: f(159),
-      cycle: '/month',
-      desc: 'Social Media Content System',
-      cta: 'Get Started',
-      featured: true,
-      inside: ['All 3 industry niches included','360 Feed Posts','162 Story Designs','72 Highlight Covers','18 Feed Design Systems','18 Content Collections','300+ Realistic Photo & Video Assets'],
-      updates: ['360 New Posts','New Story Content','3 New Design Collections'],
-      pros: [
-        'Everything in Starter',
-        'Use across multiple client projects',
-        'Licensed for personal, business & client use',
-        'Premium customer support',
-      ],
-      cons: ['Not for resale or redistribution'],
-      ideal: 'Agencies and SMMs running 3+ clients at a time.',
-    },
-    {
-      id: 'custom',
-      name: 'Custom',
-      tag: 'Built Specifically For Your Business',
-      price: 'From €1,000',
-      cycle: '',
-      desc: 'Custom Social Media Branding System',
-      cta: 'Contact Us',
-      featured: false,
-      inside: ['1 Custom Branded Canva Template','20 Feed Posts','10 Story Designs','30 Highlight Covers','AI Realistic Photo & Video Assets','Brand Color & Visual Direction','1 Monthly Strategy Call'],
-      updates: ['+€500/month optional content support'],
-      pros: [
-        'Fully customized for your brand',
-        'Professional and visually consistent',
-        'Multi-platform ready',
-        'Premium support',
-      ],
-      cons: [],
-      ideal: 'Businesses that want a premium presence — done for them.',
-    },
-  ];
-};
+const PLANS = [
+  {
+    id: 'starter',
+    name: 'Starter',
+    tag: 'For Dentists, Estheticians & Business Coaches',
+    price: '€99',
+    cycle: '/month',
+    desc: 'Social Media Content System',
+    cta: 'Get Started',
+    featured: false,
+    inside: ['120 Feed Posts','54 Story Designs','24 Highlight Covers','6 Feed Design Systems','6 Content Collections','100+ Realistic Photo & Video Assets'],
+    updates: ['120 New Posts','New Story Content','1 New Design Collection'],
+    pros: [
+      'Fast content creation system',
+      'Edit easily in Canva',
+      'Post professional content in minutes',
+      'Visually consistent branding',
+      'Unlimited downloads',
+      'Multi-platform: IG, FB, LinkedIn, Pinterest',
+      'Personal & business use',
+      'Customer support',
+    ],
+    cons: ['Not for client work','Not for resale'],
+    ideal: 'Professionals growing their brand without hiring a designer.',
+  },
+  {
+    id: 'pro',
+    name: 'Pro',
+    tag: 'For Social Media Managers & Agencies',
+    price: '€159',
+    cycle: '/month',
+    desc: 'Social Media Content System',
+    cta: 'Get Started',
+    featured: true,
+    inside: ['All 3 industry niches included','360 Feed Posts','162 Story Designs','72 Highlight Covers','18 Feed Design Systems','18 Content Collections','300+ Realistic Photo & Video Assets'],
+    updates: ['360 New Posts','New Story Content','3 New Design Collections'],
+    pros: [
+      'Everything in Starter',
+      'Use across multiple client projects',
+      'Licensed for personal, business & client use',
+      'Premium customer support',
+    ],
+    cons: ['Not for resale or redistribution'],
+    ideal: 'Agencies and SMMs running 3+ clients at a time.',
+  },
+  {
+    id: 'custom',
+    name: 'Custom',
+    tag: 'Built Specifically For Your Business',
+    price: 'From €1,000',
+    cycle: '',
+    desc: 'Custom Social Media Branding System',
+    cta: 'Contact Us',
+    featured: false,
+    inside: ['1 Custom Branded Canva Template','20 Feed Posts','10 Story Designs','30 Highlight Covers','AI Realistic Photo & Video Assets','Brand Color & Visual Direction','1 Monthly Strategy Call'],
+    updates: ['+€500/month optional content support'],
+    pros: [
+      'Fully customized for your brand',
+      'Professional and visually consistent',
+      'Multi-platform ready',
+      'Premium support',
+    ],
+    cons: [],
+    ideal: 'Businesses that want a premium presence — done for them.',
+  },
+];
 
 export default function Pricing({ palette }) {
-  const [cycle, setCycle] = useState('monthly');
   const [expanded, setExpanded] = useState({});
   const [contactOpen, setContactOpen] = useState(false);
   const [contactPlan, setContactPlan] = useState(null);
   const [contactCategory, setContactCategory] = useState(null);
   const [categoryPickerFor, setCategoryPickerFor] = useState(null);
-  const mult = cycle === 'monthly' ? 1 : cycle === 'quarterly' ? 0.9 : 0.75;
-  const plans = planFeatures(mult);
   const toggle = (id) => setExpanded(s => ({ ...s, [id]: !s[id] }));
 
   const openContact = (plan, category = null) => {
@@ -115,25 +107,10 @@ export default function Pricing({ palette }) {
           </h2>
         </Reveal>
 
-        <Reveal className="mt-10 flex justify-center">
-          <div className="inline-flex items-center bg-bg2 border border-line p-1 rounded-full">
-            {[
-              ['monthly','Monthly'],
-              ['quarterly','Quarterly · −10%'],
-              ['yearly','Yearly · −25%'],
-            ].map(([k,l]) => (
-              <button key={k} onClick={()=>setCycle(k)} className={`px-4 sm:px-5 h-10 rounded-full text-[13px] sm:text-[13.5px] font-medium transition ${cycle===k ? 'tab-active shadow-card' : 'text-ink/55 hover:text-ink'}`}>
-                {l}
-              </button>
-            ))}
-          </div>
-        </Reveal>
-
         <Reveal className="mt-12 grid lg:grid-cols-3 gap-5 lg:gap-6 items-start">
-          {plans.map((p) => {
+          {PLANS.map((p) => {
             const isOpen = !!expanded[p.id];
             const showCategories = categoryPickerFor === p.id;
-            const hasCategoryStep = PLANS_WITH_CATEGORIES.includes(p.id);
             return (
               <div key={p.id}
                    className={`relative rounded-[24px] border bg-white p-7 lg:p-8 transition flex flex-col ${p.featured ? 'border-transparent shadow-lift' : 'border-line hover:shadow-card'}`}
@@ -161,7 +138,17 @@ export default function Pricing({ palette }) {
                     </div>
                     <span className="text-[13.5px] text-ink/55 shrink-0">{p.cycle}</span>
                   </div>
-                  <p className="mt-2 text-[13.5px] text-ink/60">{p.tag}</p>
+                  {showCategories ? (
+                    <button
+                      type="button"
+                      onClick={() => setCategoryPickerFor(null)}
+                      className="mt-2 inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink/55 hover:text-ink transition self-start"
+                    >
+                      ← Back to plan details
+                    </button>
+                  ) : (
+                    <p className="mt-2 text-[13.5px] text-ink/60">{p.tag}</p>
+                  )}
 
                   <div className="my-6 h-px bg-line"></div>
 
@@ -169,7 +156,6 @@ export default function Pricing({ palette }) {
                     <PricingCategoryPicker
                       categories={PRICING_CATEGORIES}
                       onSelect={(cat) => openContact(p, cat)}
-                      onBack={() => setCategoryPickerFor(null)}
                     />
                   ) : (
                     <>
@@ -218,26 +204,22 @@ export default function Pricing({ palette }) {
                   )}
 
                   {!showCategories && (
-                    p.id === 'custom' ? (
-                      <button
-                        type="button"
-                        onClick={() => openContact(p)}
-                        className="btn-pill mt-auto w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium border border-ink text-ink hover:bg-ink hover:text-white transition"
-                      >
-                        {p.cta} <IconArrow size={15}/>
-                      </button>
-                    ) : hasCategoryStep ? (
+                    p.id === 'starter' ? (
                       <button
                         type="button"
                         onClick={() => setCategoryPickerFor(p.id)}
-                        className={`btn-pill mt-auto w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium ${p.featured ? 'bg-ink text-white' : 'border border-ink text-ink hover:bg-ink hover:text-white transition'}`}
+                        className="btn-pill mt-auto w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium border border-ink text-ink"
                       >
                         {p.cta} <IconArrow size={15}/>
                       </button>
                     ) : (
-                      <a href="#contact" className={`btn-pill mt-auto w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium ${p.featured ? 'bg-ink text-white' : 'border border-ink text-ink hover:bg-ink hover:text-white transition'}`}>
+                      <button
+                        type="button"
+                        onClick={() => openContact(p)}
+                        className={`btn-pill mt-auto w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium ${p.featured ? 'bg-ink text-white' : 'border border-ink text-ink'}`}
+                      >
                         {p.cta} <IconArrow size={15}/>
-                      </a>
+                      </button>
                     )
                   )}
                 </div>
