@@ -89,7 +89,7 @@ export default function Header({ palette, onOpenContact }) {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="#login" className="hidden md:inline text-[14.5px] font-medium text-ink/70 hover:text-ink">Log in</a>
+          <a href="https://app.highcontent.io/" className="hidden md:inline text-[14.5px] font-medium text-ink/70 hover:text-ink">Log in</a>
           <a href="#pricing" className="btn-pill inline-flex items-center gap-2 bg-ink text-white px-5 h-10 rounded-full text-[14px] font-medium">
             Get Started <IconArrow size={16}/>
           </a>

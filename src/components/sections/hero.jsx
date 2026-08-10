@@ -51,17 +51,16 @@ const PhotoCard = ({ src, alt, pos = 'center' }) => (
 );
 
 const HeroGallery = () => {
-  const img = {
-    A: '/assets/gallery/perfect-skin-story.png',
-    B: '/assets/gallery/orelia-skin-midnight-highlight.png',
-    C: '/assets/gallery/orelia-skin-highlight.png',
-    D: '/assets/gallery/skincare-essence-post.png',
-    E: '/assets/gallery/skincare-essence-kitchen-post.png',
-    F: '/assets/gallery/elite-aura-story.png',
-    G: '/assets/gallery/power-edit-highlight.png',
-    H: '/assets/gallery/power-edit-alt.png',
-    I: '/assets/gallery/femme-capitale-post.png',
-  };
+  const gallery = [
+    '/assets/gallery/gallery-img1.png',
+    '/assets/gallery/gallery-img2.png',
+    '/assets/gallery/gallery-img3.png',
+    '/assets/gallery/gallery-img4.png',
+    '/assets/gallery/gallery-img5.png',
+    '/assets/gallery/gallery-img6.png',
+    '/assets/gallery/gallery-img7.png',
+    '/assets/gallery/gallery-img8.png',
+  ];
 
   // Cols 1 & 3 flush top; cols 2 & 4 staggered — taller min-height compensates for margin-top
   const colBase = 'gallery-col flex flex-col gap-4 sm:gap-5 flex-1 min-w-0';
@@ -74,20 +73,20 @@ const HeroGallery = () => {
         <div className="mx-auto max-w-[1080px] px-4 sm:px-6">
           <div className="flex gap-4 sm:gap-5 pb-10 w-full items-stretch">
             <div className={colClass}>
-              <ECard flexGrow={1.00}><PhotoCard src={img.I} alt="" pos="50% 28%" /></ECard>
-              <ECard flexGrow={1.6}><PhotoCard src={img.B} alt="" pos="50% 38%" /></ECard>
+              <ECard flexGrow={1.00}><PhotoCard src={gallery[0]} alt="Sovereign Suite content grid" pos="50% 28%" /></ECard>
+              <ECard flexGrow={1.6}><PhotoCard src={gallery[1]} alt="Healthy skin tips story" pos="50% 38%" /></ECard>
             </div>
             <div className={colStagger}>
-              <ECard flexGrow={0.88}><PhotoCard src={img.E} alt="" pos="50% 42%" /></ECard>
-              <ECard flexGrow={1.05}><PhotoCard src={img.A} alt="" pos="50% 22%" /></ECard>
+              <ECard flexGrow={0.88}><PhotoCard src={gallery[2]} alt="Social media do's and don'ts" pos="50% 42%" /></ECard>
+              <ECard flexGrow={1.05}><PhotoCard src={gallery[3]} alt="Glow boost skincare post" pos="50% 22%" /></ECard>
             </div>
             <div className={colClass}>
-              <ECard flexGrow={1.55}><PhotoCard src={img.C} alt="" pos="50% 30%" /></ECard>
-              <ECard flexGrow={1.30}><PhotoCard src={img.H} alt="" pos="50% 35%" /></ECard>
+              <ECard flexGrow={1.55}><PhotoCard src={gallery[4]} alt="Client testimonial post" pos="50% 30%" /></ECard>
+              <ECard flexGrow={1.30}><PhotoCard src={gallery[5]} alt="Perfect skin content grid" pos="50% 35%" /></ECard>
             </div>
             <div className={colStagger}>
-              <ECard flexGrow={0.88}><PhotoCard src={img.G} alt="" pos="50% 35%" /></ECard>
-              <ECard flexGrow={1.22}><PhotoCard src={img.F} alt="" pos="50% 35%" /></ECard>
+              <ECard flexGrow={0.88}><PhotoCard src={gallery[6]} alt="Brand growth post" pos="50% 35%" /></ECard>
+              <ECard flexGrow={1.22}><PhotoCard src={gallery[7]} alt="Brightening serum post" pos="50% 35%" /></ECard>
             </div>
           </div>
         </div>
