@@ -24,7 +24,7 @@ export default function DashboardPreview() {
             <img
               src="/assets/dashboard_screen.png"
               alt="Highcontent dashboard with collections, stories, videos, and analytics"
-              className="w-full h-auto rounded-[18px] border border-line shadow-lift"
+              className="w-full h-auto"
             />
             <div
               className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[80%] h-12 rounded-full pointer-events-none"

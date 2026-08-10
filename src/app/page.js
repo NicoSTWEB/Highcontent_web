@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ContactModal } from '@/components/contact-modal';
 import Header from '@/components/sections/header';
 import Hero from '@/components/sections/hero';
+import WorkGallery from '@/components/sections/work-gallery';
 import DashboardPreview from '@/components/sections/dashboard-preview';
 import Categories from '@/components/sections/categories';
 import Benefits from '@/components/sections/benefits';
@@ -47,6 +48,7 @@ export default function Page() {
       <Header palette={palette} onOpenContact={() => setContactOpen(true)} />
       <main>
         <Hero palette={palette} />
+        <WorkGallery />
         <DashboardPreview />
         <Categories onOpenContact={() => setContactOpen(true)} />
         <Benefits />

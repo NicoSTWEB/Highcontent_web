@@ -6,111 +6,6 @@ import { Reveal } from '@/components/reveal';
 // ============================================================
 // HERO
 // ============================================================
-const InstagramTile = ({ tone, label, big }) => (
-  <div className={`relative ${big ? 'aspect-[4/5]' : 'aspect-square'} rounded-[14px] overflow-hidden ig-placeholder border border-line bg-white`}
-       style={{background: tone}}>
-    <div className="absolute inset-0 flex flex-col justify-between p-3">
-      <span className="text-[10px] font-medium tracking-[0.18em] uppercase text-ink/55">{label}</span>
-      <div className="flex items-end justify-between">
-        <span className="italic-serif text-[22px] leading-none text-ink">post</span>
-        <span className="w-6 h-6 rounded-full bg-white/70 backdrop-blur grid place-items-center text-[10px]">♡</span>
-      </div>
-    </div>
-  </div>
-);
-
-// =============================================================
-// Hero gallery — 4 columns × 2 cards (8 total), staggered offsets
-// =============================================================
-const ECard = ({ children, ratio, flexGrow, bg, className = '', style = {} }) => (
-  <div
-    className={`relative rounded-[24px] overflow-hidden gallery-card ${className}`}
-    style={{
-      ...(flexGrow != null
-        ? { flex: `${flexGrow} 1 0`, minHeight: 0 }
-        : ratio
-          ? { aspectRatio: ratio }
-          : {}),
-      background: bg || '#fff',
-      boxShadow: '0 10px 28px -14px rgba(60,42,28,0.22), 0 2px 6px -2px rgba(60,42,28,0.08)',
-      ...style,
-    }}
-  >
-    {children}
-  </div>
-);
-
-// Full-bleed gallery image (no text overlays)
-const PhotoCard = ({ src, alt, pos = 'center' }) => (
-  <img
-    src={src}
-    alt={alt}
-    className="absolute inset-0 w-full h-full object-cover"
-    style={{ objectPosition: pos }}
-  />
-);
-
-const HeroGallery = () => {
-  const gallery = [
-    '/assets/gallery/gallery-img1.png',
-    '/assets/gallery/gallery-img2.png',
-    '/assets/gallery/gallery-img3.png',
-    '/assets/gallery/gallery-img4.png',
-    '/assets/gallery/gallery-img5.png',
-    '/assets/gallery/gallery-img6.png',
-    '/assets/gallery/gallery-img7.png',
-    '/assets/gallery/gallery-img8.png',
-  ];
-
-  // Cols 1 & 3 flush top; cols 2 & 4 staggered — taller min-height compensates for margin-top
-  const colBase = 'gallery-col flex flex-col gap-4 sm:gap-5 flex-1 min-w-0';
-  const colClass = `${colBase} min-h-[520px] sm:min-h-[560px] lg:min-h-[700px]`;
-  const colStagger = `${colBase} mt-12 sm:mt-16 lg:mt-[3.25rem] pb-[80px] min-h-[568px] sm:min-h-[624px] lg:min-h-[784px]`;
-
-  return (
-    <div className="mt-8 lg:mt-12 py-10 lg:py-16 bg-white overflow-x-hidden">
-      <Reveal>
-        <div className="mx-auto max-w-[1080px] px-4 sm:px-6">
-          <div className="flex gap-4 sm:gap-5 pb-10 w-full items-stretch">
-            <div className={colClass}>
-              <ECard flexGrow={1.00}><PhotoCard src={gallery[0]} alt="Sovereign Suite content grid" pos="50% 28%" /></ECard>
-              <ECard flexGrow={1.6}><PhotoCard src={gallery[1]} alt="Healthy skin tips story" pos="50% 38%" /></ECard>
-            </div>
-            <div className={colStagger}>
-              <ECard flexGrow={0.88}><PhotoCard src={gallery[2]} alt="Social media do's and don'ts" pos="50% 42%" /></ECard>
-              <ECard flexGrow={1.05}><PhotoCard src={gallery[3]} alt="Glow boost skincare post" pos="50% 22%" /></ECard>
-            </div>
-            <div className={colClass}>
-              <ECard flexGrow={1.55}><PhotoCard src={gallery[4]} alt="Client testimonial post" pos="50% 30%" /></ECard>
-              <ECard flexGrow={1.30}><PhotoCard src={gallery[5]} alt="Perfect skin content grid" pos="50% 35%" /></ECard>
-            </div>
-            <div className={colStagger}>
-              <ECard flexGrow={0.88}><PhotoCard src={gallery[6]} alt="Brand growth post" pos="50% 35%" /></ECard>
-              <ECard flexGrow={1.22}><PhotoCard src={gallery[7]} alt="Brightening serum post" pos="50% 35%" /></ECard>
-            </div>
-          </div>
-        </div>
-      </Reveal>
-    </div>
-  );
-
-
-};
-
-// One masonry column. `kind` controls vertical alignment of the card within the strip.
-const MarqueeColumn = ({ kind, item }) => {
-  // Tall (story/video) and photo bottom both fill full height differently;
-  // posts (square) sit at top or bottom of the column.
-  const align = kind === 'top' ? 'items-start'
-              : kind === 'bottom' ? 'items-end'
-              : 'items-stretch';
-  return (
-    <div className={`shrink-0 w-[180px] sm:w-[210px] h-[360px] sm:h-[400px] flex flex-col ${align}`}>
-      <MarqueeCard it={item}/>
-    </div>
-  );
-};
-
 export default function Hero({ palette }) {
   return (
     <section id="top" className="relative pt-[160px] pb-20 lg:pb-24 overflow-hidden">
@@ -160,7 +55,7 @@ export default function Hero({ palette }) {
         </Reveal>
       </div>
 
-      {/* Trust bar — between hero text and gallery */}
+      {/* Trust bar */}
       <Reveal className="mt-14 lg:mt-20 max-w-[960px] mx-auto px-6 lg:px-10">
         <p className="text-center text-[13.5px] sm:text-[14.5px] font-medium text-ink mb-6 lg:mb-7">Works with your favorite platforms</p>
         <div className="flex items-center justify-center gap-9 sm:gap-12 lg:gap-14 flex-wrap text-ink/45">
@@ -171,14 +66,6 @@ export default function Hero({ palette }) {
           <div className="flex items-center gap-2 hover:text-ink/85 transition"><IconPinterest size={26}/><span className="font-semibold text-[13.5px]">Pinterest</span></div>
         </div>
       </Reveal>
-
-      <Reveal className="text-center max-w-[820px] mx-auto mt-24 lg:mt-32 px-6 lg:px-10">
-        <h2 className="font-extrabold tracking-tight text-[40px] sm:text-[56px] leading-[1.04] text-ink text-balance">
-          <span className="italic-serif font-normal">Weeks</span> of work. <br/>Done in <span className="italic-serif font-normal">minutes</span>.
-        </h2>
-      </Reveal>
-
-      <HeroGallery />
     </section>
   );
-};
+}

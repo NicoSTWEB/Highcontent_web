@@ -234,6 +234,49 @@ a.btn-pill:hover,
   }
 }
 
+.legal-prose {
+  color: rgba(10, 10, 10, 0.72);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.legal-prose h2 {
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #0a0a0a;
+}
+
+.legal-prose p {
+  margin-bottom: 1rem;
+}
+
+.legal-prose ul {
+  margin: 0 0 1rem 1.25rem;
+  list-style: disc;
+}
+
+.legal-prose li {
+  margin-bottom: 0.5rem;
+}
+
+.legal-prose a {
+  color: #0a0a0a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-prose a:hover {
+  color: rgba(10, 10, 10, 0.65);
+}
+
+.legal-prose strong {
+  font-weight: 600;
+  color: #0a0a0a;
+}
+
 ::selection {
   background: #c4b5fd;
   color: #0a0a0a;
