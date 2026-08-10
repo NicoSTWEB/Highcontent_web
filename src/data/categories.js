@@ -30,5 +30,6 @@ export const PRICING_CATEGORIES = [
     img: '/assets/Template-Content-Social-Media-Stock-Aesthetic-Clinics.png',
     tag: '140 assets',
     outsetaPlanUid: null,
+    comingSoon: true,
   },
 ];

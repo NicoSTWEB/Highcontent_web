@@ -35,7 +35,13 @@ export default function Categories({ onOpenContact }) {
                 <div className="text-[13.5px] text-white/75 mt-1">{c.sub}</div>
               </div>
               <span className="btn-pill inline-flex items-center gap-1.5 bg-ink text-white px-4 h-10 rounded-full text-[13px] font-semibold shrink-0">
-                Access <IconArrow size={14}/>
+                {c.comingSoon ? (
+                  'Coming soon'
+                ) : (
+                  <>
+                    Access <IconArrow size={14} />
+                  </>
+                )}
               </span>
             </div>
           </a>
