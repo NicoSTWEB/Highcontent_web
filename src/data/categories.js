@@ -1,32 +1,34 @@
+import { OUTSETA_PLAN_UIDS } from '@/lib/outseta';
+
 export const PRICING_CATEGORIES = [
   {
     id: 'dentist',
     title: 'Dentist',
-    sub: 'Clinic-ready posts that build trust',
+    sub: 'Build trust. Educate. Attract patients.',
     img: '/assets/Template-Content-Social-Media-Stock-Dentist.png',
     tag: '120 assets',
-    outsetaPlanUid: 'B9lKpvQ8',
+    outsetaPlanUid: OUTSETA_PLAN_UIDS.starterDentist,
   },
   {
     id: 'esthetician',
     title: 'Esthetician',
-    sub: 'Skin-first visuals & education',
+    sub: 'Elevated content for skincare professionals',
     img: '/assets/Template-%26-Content-Social-Media-Stock-Dermatology.png',
     tag: '110 assets',
-    outsetaPlanUid: null,
+    outsetaPlanUid: OUTSETA_PLAN_UIDS.starterEsthetician,
   },
   {
     id: 'business-coach',
     title: 'Business Coach',
-    sub: 'Authority content that converts',
+    sub: 'Build authority. Attract clients. Sell expertise.',
     img: '/assets/Template-Content-Social-Media-Stock-Business-Coach.png',
     tag: '95 assets',
-    outsetaPlanUid: null,
+    outsetaPlanUid: OUTSETA_PLAN_UIDS.starterBusinessCoach,
   },
   {
     id: 'aesthetic-medicine',
-    title: 'Aesthetic Medicine',
-    sub: 'Premium before/after & lifestyle',
+    title: 'Aesthetic Clinics',
+    sub: 'Elevated content for aesthetic clinics & doctors',
     img: '/assets/Template-Content-Social-Media-Stock-Aesthetic-Clinics.png',
     tag: '140 assets',
     outsetaPlanUid: null,

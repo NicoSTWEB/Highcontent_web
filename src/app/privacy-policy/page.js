@@ -95,7 +95,7 @@ export default function PrivacyPolicyPage() {
         Depending on your location, you may have rights to access, correct, delete, restrict, or
         object to certain processing of your personal data, and to data portability or withdrawal
         of consent. To exercise these rights, contact us at{' '}
-        <a href="mailto:hello@highcontent.io">hello@highcontent.io</a>.
+        <a href="mailto:contact@highcontent.io">contact@highcontent.io</a>.
       </p>
 
       <h2>9. Security</h2>
@@ -121,7 +121,7 @@ export default function PrivacyPolicyPage() {
       <h2>12. Contact</h2>
       <p>
         For privacy-related questions or requests, email{' '}
-        <a href="mailto:hello@highcontent.io">hello@highcontent.io</a>.
+        <a href="mailto:contact@highcontent.io">contact@highcontent.io</a>.
       </p>
     </LegalPageShell>
   );

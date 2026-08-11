@@ -1,6 +1,8 @@
 export const OUTSETA_PLAN_UIDS = {
-  pro: 'BWz8adQE',
+  pro: 'jW70brmq',
   starterDentist: 'B9lKpvQ8',
+  starterEsthetician: 'pWrK5Mmn',
+  starterBusinessCoach: 'E9LJR5mw',
 };
 
 export function openOutsetaRegister(planUid) {

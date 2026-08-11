@@ -99,7 +99,7 @@ export default function TermsAndConditionsPage() {
       <h2>11. Contact</h2>
       <p>
         Questions about these Terms? Email us at{' '}
-        <a href="mailto:hello@highcontent.io">hello@highcontent.io</a>.
+        <a href="mailto:contact@highcontent.io">contact@highcontent.io</a>.
       </p>
     </LegalPageShell>
   );

@@ -8,8 +8,8 @@ function ContactDetails() {
   const items = [
     {
       label: 'Email',
-      value: 'hello@highcontent.io',
-      href: 'mailto:hello@highcontent.io',
+      value: 'contact@highcontent.io',
+      href: 'mailto:contact@highcontent.io',
     },
     {
       label: 'Instagram',
@@ -282,8 +282,8 @@ function ContactForm({ onClose, plan, category, variant = 'plan' }) {
       </button>
       <p className="mt-3 text-center text-[12px] text-ink/45">
         Or email us at{' '}
-        <a href="mailto:hello@highcontent.io" className="text-ink/70 hover:text-ink underline underline-offset-2">
-          hello@highcontent.io
+        <a href="mailto:contact@highcontent.io" className="text-ink/70 hover:text-ink underline underline-offset-2">
+          contact@highcontent.io
         </a>
       </p>
     </form>

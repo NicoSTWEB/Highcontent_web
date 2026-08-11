@@ -39,7 +39,7 @@ export default function Categories({ onOpenContact }) {
                   'Coming soon'
                 ) : (
                   <>
-                    Access <IconArrow size={14} />
+                    Subscribe <IconArrow size={14} />
                   </>
                 )}
               </span>
