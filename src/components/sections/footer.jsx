@@ -31,7 +31,9 @@ export default function Footer() {
               <li><a href="mailto:contact@highcontent.io" className="hover:text-ink">contact@highcontent.io</a></li>
             </ul>
             <a
-              href="#"
+              href="https://www.instagram.com/highcontentmedia"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram"
               className="mt-4 w-10 h-10 rounded-full border border-line grid place-items-center text-ink/55 hover:text-ink hover:border-ink/40 transition"
             >

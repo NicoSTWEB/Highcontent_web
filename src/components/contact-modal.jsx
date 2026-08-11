@@ -13,8 +13,8 @@ function ContactDetails() {
     },
     {
       label: 'Instagram',
-      value: '@highcontent',
-      href: '#',
+      value: '@highcontentmedia',
+      href: 'https://www.instagram.com/highcontentmedia',
     },
     {
       label: 'Book a call',
@@ -41,7 +41,13 @@ function ContactDetails() {
             <div className="text-[11px] uppercase tracking-[0.16em] font-medium text-ink/45 mb-1">
               {item.label}
             </div>
-            <a href={item.href} className="text-[15px] font-medium text-ink hover:text-ink/70 transition">
+            <a
+              href={item.href}
+              {...(item.href.startsWith('http')
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : {})}
+              className="text-[15px] font-medium text-ink hover:text-ink/70 transition"
+            >
               {item.value}
             </a>
           </li>
