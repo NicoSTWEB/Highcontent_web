@@ -125,6 +125,13 @@ export default function Header({ palette, onOpenContact }) {
                 <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="py-2 font-medium">{n.label}</a>
               )
             ))}
+            <a
+              href="https://app.highcontent.io/"
+              onClick={() => setOpen(false)}
+              className="py-2 font-medium text-ink/70"
+            >
+              Log in
+            </a>
           </div>
         </div>
       )}
