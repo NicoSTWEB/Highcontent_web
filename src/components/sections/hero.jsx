@@ -33,7 +33,7 @@ export default function Hero({ palette }) {
         <Reveal className="text-center max-w-[1000px] mx-auto">
           <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur border border-line rounded-full px-3.5 py-1.5 text-[12px] font-medium tracking-[0.14em] uppercase text-ink/70 mb-7">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            New · 360 fresh assets dropped this month
+            360 assets dropped this month
           </div>
           <h1 className="font-extrabold tracking-tight text-[38px] sm:text-[52px] lg:text-[68px] leading-[1.02] text-ink text-balance">
             Access ready-to-post social media <span className="italic-serif font-normal text-ink/90">templates</span>,
