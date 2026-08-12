@@ -15,7 +15,7 @@ export default function DashboardPreview() {
             All social media <span className="italic-serif font-normal">content</span> in one <span className="italic-serif font-normal">solution</span>.
           </h2>
           <p className="mt-5 text-[16px] text-ink/60 max-w-[560px] mx-auto leading-[1.55]">
-            Each kit is a full creative-director mood board — feed, story, reels, AI imagery and highlight covers, curated for your niche.
+            Each kit gives you everything you need to create a consistent social media presence — ready-made posts, Stories, Reels, AI visuals and Highlight covers, all designed for your niche.
           </p>
         </Reveal>
 

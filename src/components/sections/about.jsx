@@ -39,7 +39,10 @@ export default function About() {
               { value: '1,500+', label: 'Helped Businesses Worldwide' },
               { value: '100M+', label: 'Views Generated' },
             ].map((stat) => (
-              <div key={stat.label} className="border-l border-line pl-4">
+              <div
+                key={stat.label}
+                className="border-l border-line pl-4 max-sm:first:border-l-0 max-sm:first:pl-0"
+              >
                 <div className="text-[28px] font-extrabold tracking-tight">
                   {stat.value}
                   {stat.suffix ? (
