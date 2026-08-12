@@ -171,11 +171,45 @@ function PlanDetails({ plan, category }) {
 
 function ContactForm({ onClose, plan, category, variant = 'plan' }) {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
   const isContact = variant === 'contact';
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError('');
+    setSending(true);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          business: data.get('business'),
+          message: data.get('message'),
+          plan: plan?.name || '',
+          category: category?.title || '',
+        }),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.success) {
+        setError(result.error || 'Something went wrong. Please try again.');
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   const nicheLine = !isContact && plan
@@ -229,13 +263,13 @@ function ContactForm({ onClose, plan, category, variant = 'plan' }) {
           <label htmlFor="contact-name" className="block text-[12px] font-semibold text-ink/70 mb-1.5">
             Full name
           </label>
-          <input id="contact-name" name="name" type="text" required autoComplete="name" className={fieldClass} placeholder="Jane Smith" />
+          <input id="contact-name" name="name" type="text" required autoComplete="name" className={fieldClass} placeholder="Jane Smith" disabled={sending} />
         </div>
         <div>
           <label htmlFor="contact-email" className="block text-[12px] font-semibold text-ink/70 mb-1.5">
             Email
           </label>
-          <input id="contact-email" name="email" type="email" required autoComplete="email" className={fieldClass} placeholder="you@company.com" />
+          <input id="contact-email" name="email" type="email" required autoComplete="email" className={fieldClass} placeholder="you@company.com" disabled={sending} />
         </div>
         <div>
           <label htmlFor="contact-business" className="block text-[12px] font-semibold text-ink/70 mb-1.5">
@@ -249,6 +283,7 @@ function ContactForm({ onClose, plan, category, variant = 'plan' }) {
             className={fieldClass}
             placeholder="yourbrand.com"
             defaultValue={category?.title ?? ''}
+            disabled={sending}
           />
         </div>
         <div>
@@ -276,15 +311,27 @@ function ContactForm({ onClose, plan, category, variant = 'plan' }) {
                   ? 'I\'d like to get started with the Pro plan.'
                   : ''
             }
+            disabled={sending}
           />
         </div>
       </div>
 
+      {error ? (
+        <p className="mt-4 text-[13px] text-rose-600 text-center" role="alert">
+          {error}
+        </p>
+      ) : null}
+
       <button
         type="submit"
-        className="mt-6 btn-pill w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium bg-ink text-white"
+        disabled={sending}
+        className="mt-6 btn-pill w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium bg-ink text-white disabled:opacity-60"
       >
-        Send message <IconArrow size={15} />
+        {sending ? 'Sending…' : (
+          <>
+            Send message <IconArrow size={15} />
+          </>
+        )}
       </button>
       <p className="mt-3 text-center text-[12px] text-ink/45">
         Or email us at{' '}

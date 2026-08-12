@@ -37,6 +37,7 @@ export default function Header({ palette, onOpenContact }) {
         }`}
         style={{
           maxWidth: scrolled ? '980px' : '1280px',
+          width: scrolled ? 'calc(100% - 24px)' : '100%',
           height: scrolled ? '56px' : undefined,
           borderRadius: scrolled ? '9999px' : '0px',
           background: scrolled ? 'rgba(255,255,255,0.78)' : 'rgba(255,255,255,0)',
@@ -48,15 +49,15 @@ export default function Header({ palette, onOpenContact }) {
             : '0 0 0 0 rgba(0,0,0,0)',
           transition:
             'max-width 450ms cubic-bezier(.4,.2,.2,1),' +
+            ' width 450ms cubic-bezier(.4,.2,.2,1),' +
             ' height 450ms cubic-bezier(.4,.2,.2,1),' +
             ' border-radius 450ms cubic-bezier(.4,.2,.2,1),' +
             ' background 350ms ease,' +
             ' box-shadow 450ms ease,' +
             ' border-color 350ms ease,' +
             ' backdrop-filter 350ms ease',
-          marginLeft: scrolled ? '12px' : 'auto',
-          marginRight: scrolled ? '12px' : 'auto',
-          width: scrolled ? 'auto' : undefined,
+          marginLeft: 'auto',
+          marginRight: 'auto',
         }}
       >
         <a href="#top" className="flex items-center min-w-0">
