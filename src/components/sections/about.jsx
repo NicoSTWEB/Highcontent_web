@@ -31,17 +31,24 @@ export default function About() {
             Meet the creative mind behind <span className="italic-serif font-normal">your success</span>.
           </h2>
           <p className="mt-6 text-[17px] text-ink/65 leading-[1.65] max-w-[560px]">
-            Highcontent was founded by a small studio passionate about design and social media strategy. We help professionals build a premium online presence — effortlessly. We create the content; you edit and post.
+            High Content was founded by a social media manager and agency owner with 10 years of industry experience. This experience gave us a deep understanding of the challenges business owners face when creating content consistently. We created High Content — a complete content system designed to make professional social media easier and faster. We create. You edit, post &amp; grow.
           </p>
           <div className="mt-8 grid grid-cols-3 gap-4 max-w-[480px]">
             {[
-              ['+2.4k','clients served'],
-              ['+58k','assets shipped'],
-              ['12 mo','content runway'],
-            ].map(([n,l]) => (
-              <div key={l} className="border-l border-line pl-4">
-                <div className="text-[28px] font-extrabold tracking-tight">{n}</div>
-                <div className="text-[12.5px] text-ink/55 mt-0.5">{l}</div>
+              { value: '10', suffix: 'YEARS', label: 'Social Media Experience' },
+              { value: '1,500+', label: 'Helped Businesses Worldwide' },
+              { value: '100M+', label: 'Views Generated' },
+            ].map((stat) => (
+              <div key={stat.label} className="border-l border-line pl-4">
+                <div className="text-[28px] font-extrabold tracking-tight">
+                  {stat.value}
+                  {stat.suffix ? (
+                    <span className="ml-1.5 text-[13px] font-bold tracking-[0.06em] align-baseline">
+                      {stat.suffix}
+                    </span>
+                  ) : null}
+                </div>
+                <div className="text-[12.5px] text-ink/55 mt-0.5">{stat.label}</div>
               </div>
             ))}
           </div>
