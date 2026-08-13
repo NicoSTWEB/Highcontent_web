@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${dmSans.variable} ${instrumentSerif.variable}`}>
       <body className="overflow-x-hidden font-sans antialiased">
         <Script id="outseta-options" strategy="beforeInteractive">
-          {`var o_options = { domain: 'highcontent.outseta.com', monitorDom: true };`}
+          {`var o_options = { domain: 'highcontent.outseta.com', monitorDom: true, translationLang: 'en' };`}
         </Script>
         <Script
           id="outseta-script"
