@@ -249,13 +249,72 @@ a.btn-pill:hover,
   color: #0a0a0a;
 }
 
+.legal-prose h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #0a0a0a;
+}
+
 .legal-prose p {
   margin-bottom: 1rem;
 }
 
-.legal-prose ul {
+.legal-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1.25rem;
+  border: 1px solid rgba(10, 10, 10, 0.12);
+  border-radius: 12px;
+}
+
+.legal-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.legal-prose th,
+.legal-prose td {
+  padding: 0.7rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.1);
+}
+
+.legal-prose th {
+  font-weight: 650;
+  color: #0a0a0a;
+  background: rgba(10, 10, 10, 0.035);
+  white-space: nowrap;
+}
+
+.legal-prose tr:last-child td {
+  border-bottom: 0;
+}
+
+.legal-prose td:first-child {
+  font-weight: 600;
+  color: #0a0a0a;
+}
+
+.legal-prose ul,
+.legal-prose ol {
   margin: 0 0 1rem 1.25rem;
+}
+
+.legal-prose ul {
   list-style: disc;
+}
+
+.legal-prose ol {
+  list-style: decimal;
+}
+
+.legal-prose ol.legal-alpha {
+  list-style: lower-alpha;
 }
 
 .legal-prose li {

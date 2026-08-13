@@ -322,10 +322,41 @@ function ContactForm({ onClose, plan, category, variant = 'plan' }) {
         </p>
       ) : null}
 
+      <label className="mt-5 flex items-start gap-2.5 text-[12.5px] text-ink/60 leading-[1.5] cursor-pointer">
+        <input
+          type="checkbox"
+          name="legal"
+          required
+          disabled={sending}
+          className="mt-0.5 w-4 h-4 shrink-0 accent-ink cursor-pointer"
+        />
+        <span>
+          I have read and accept the{' '}
+          <a
+            href="/terms-and-conditions"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ink/80 hover:text-ink underline underline-offset-2"
+          >
+            Terms and conditions
+          </a>
+          , particularly the mention relating to the protection of personal data, and the{' '}
+          <a
+            href="/privacy-policy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ink/80 hover:text-ink underline underline-offset-2"
+          >
+            Privacy Policy
+          </a>
+          .
+        </span>
+      </label>
+
       <button
         type="submit"
         disabled={sending}
-        className="mt-6 btn-pill w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium bg-ink text-white disabled:opacity-60"
+        className="mt-4 btn-pill w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium bg-ink text-white disabled:opacity-60"
       >
         {sending ? 'Sending…' : (
           <>
