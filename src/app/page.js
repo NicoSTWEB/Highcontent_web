@@ -56,7 +56,7 @@ export default function Page() {
         <About />
         <Testimonials />
         <FAQ />
-        <FinalCTA palette={palette} />
+        <FinalCTA palette={palette} onOpenContact={() => setContactOpen(true)} />
       </main>
       <Footer />
 

@@ -6,7 +6,7 @@ import { Reveal } from '@/components/reveal';
 // ============================================================
 // FINAL CTA
 // ============================================================
-export default function FinalCTA({ palette }) {
+export default function FinalCTA({ palette, onOpenContact }) {
   return (
   <section id="get-started" className="bg-white py-16 lg:py-24">
     <div className="max-w-7xl mx-auto px-4">
@@ -30,9 +30,13 @@ export default function FinalCTA({ palette }) {
           <a href="#pricing" className="btn-pill inline-flex items-center gap-2 bg-ink text-white px-5 h-10 rounded-full text-[14px] font-medium">
             Get Started <IconArrow size={16}/>
           </a>
-          <a href="#contact" className="text-black text-sm font-medium ml-4 hover:underline cursor-pointer">
+          <button
+            type="button"
+            onClick={onOpenContact}
+            className="text-black text-sm font-medium ml-4 hover:underline cursor-pointer"
+          >
             Talk to us
-          </a>
+          </button>
         </div>
 
         <div className="mt-8 text-[12.5px] text-gray-400">
