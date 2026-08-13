@@ -20,14 +20,6 @@ export const metadata = {
   title: "Highcontent - Ready to post social media content for professionals",
   description:
     "Stop spending weekends in Canva. Get a full month of ready-to-post content — Posts, Stories and realistic AI photo and video. New drops monthly, from €99.",
-  robots: {
-    index: false,
-    follow: false,
-    googleBot: {
-      index: false,
-      follow: false,
-    },
-  },
 };
 
 export default function RootLayout({ children }) {
