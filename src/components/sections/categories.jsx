@@ -1,7 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { IconArrow } from '@/components/icons';
 import { Reveal } from '@/components/reveal';
+import { CollectionsModal } from '@/components/collections-modal';
 import { PRICING_CATEGORIES as categories } from '@/data/categories';
 
 // ============================================================
@@ -9,6 +11,8 @@ import { PRICING_CATEGORIES as categories } from '@/data/categories';
 // ============================================================
 
 export default function Categories({ onOpenContact }) {
+  const [openCategory, setOpenCategory] = useState(null);
+
   return (
   <section id="categories" className="bg-white py-16 lg:py-20">
     <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
@@ -25,27 +29,50 @@ export default function Categories({ onOpenContact }) {
       </Reveal>
 
       <Reveal className="grid sm:grid-cols-2 gap-4 lg:gap-6">
-        {categories.map((c, i) => (
-          <a key={c.title} href="#pricing" className="group relative block rounded-[22px] overflow-hidden border border-line bg-ink aspect-[16/11]">
-            <img src={c.img} alt={c.title} className="absolute inset-0 w-full h-full object-cover card-img-hover opacity-95"/>
-            <div className="absolute inset-0" style={{background:'linear-gradient(180deg, rgba(10,10,10,0) 35%, rgba(10,10,10,0.85) 100%)'}}></div>
-            <div className="absolute left-6 right-6 bottom-6 flex items-end justify-between gap-4 text-white">
-              <div className="min-w-0">
-                <div className="text-[28px] sm:text-[32px] font-bold tracking-tight leading-tight">{c.title}</div>
-                <div className="text-[13.5px] text-white/75 mt-1">{c.sub}</div>
+        {categories.map((c) => {
+          const inner = (
+            <>
+              <img src={c.img} alt={c.title} className="absolute inset-0 w-full h-full object-cover card-img-hover opacity-95"/>
+              <div className="absolute inset-0" style={{background:'linear-gradient(180deg, rgba(10,10,10,0) 35%, rgba(10,10,10,0.85) 100%)'}}></div>
+              <div className="absolute left-6 right-6 bottom-6 flex items-end justify-between gap-4 text-white">
+                <div className="min-w-0">
+                  <div className="text-[28px] sm:text-[32px] font-bold tracking-tight leading-tight">{c.title}</div>
+                  <div className="text-[13.5px] text-white/75 mt-1">{c.sub}</div>
+                </div>
+                <span className="btn-pill inline-flex items-center gap-1.5 bg-ink text-white px-4 h-10 rounded-full text-[13px] font-semibold shrink-0">
+                  {c.comingSoon ? (
+                    'Coming soon'
+                  ) : (
+                    <>
+                      See collections <IconArrow size={14} />
+                    </>
+                  )}
+                </span>
               </div>
-              <span className="btn-pill inline-flex items-center gap-1.5 bg-ink text-white px-4 h-10 rounded-full text-[13px] font-semibold shrink-0">
-                {c.comingSoon ? (
-                  'Coming soon'
-                ) : (
-                  <>
-                    Subscribe <IconArrow size={14} />
-                  </>
-                )}
-              </span>
-            </div>
-          </a>
-        ))}
+            </>
+          );
+
+          const cardClass = 'group relative block w-full rounded-[22px] overflow-hidden border border-line bg-ink aspect-[16/11] text-left';
+
+          if (c.comingSoon) {
+            return (
+              <div key={c.title} className={cardClass}>
+                {inner}
+              </div>
+            );
+          }
+
+          return (
+            <button
+              key={c.title}
+              type="button"
+              onClick={() => setOpenCategory(c)}
+              className={cardClass}
+            >
+              {inner}
+            </button>
+          );
+        })}
       </Reveal>
 
       <Reveal className="mt-12 text-center">
@@ -61,6 +88,12 @@ export default function Categories({ onOpenContact }) {
         </p>
       </Reveal>
     </div>
+
+    <CollectionsModal
+      open={!!openCategory}
+      category={openCategory}
+      onClose={() => setOpenCategory(null)}
+    />
   </section>
   );
 }

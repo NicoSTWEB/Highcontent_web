@@ -8,6 +8,14 @@ export const PRICING_CATEGORIES = [
     img: '/assets/Template-Content-Social-Media-Stock-Dentist.png',
     tag: '120 assets',
     outsetaPlanUid: OUTSETA_PLAN_UIDS.starterDentist,
+    collections: [
+      { name: 'Clear Dental', img: '/assets/dentist/template-clear-dental.jpg' },
+      { name: 'Noble Smile', img: '/assets/dentist/template-noble-smile.jpg' },
+      { name: 'Signature Dental', img: '/assets/dentist/template-signature-dental.jpg' },
+      { name: 'Platinum Dental', img: '/assets/dentist/template-platinum-dental.jpg' },
+      { name: 'Fresh Dental', img: '/assets/dentist/template-fresh-dental.jpg' },
+      { name: 'Crown Studio', img: '/assets/dentist/template-crown-studio.jpg' },
+    ],
   },
   {
     id: 'esthetician',
@@ -16,6 +24,14 @@ export const PRICING_CATEGORIES = [
     img: '/assets/Template-%26-Content-Social-Media-Stock-Dermatology.png',
     tag: '110 assets',
     outsetaPlanUid: OUTSETA_PLAN_UIDS.starterEsthetician,
+    collections: [
+      { name: 'Lumea Skin', img: '/assets/estheticians/template-lumea-skin.jpg' },
+      { name: 'Orelia Skin', img: '/assets/estheticians/template-orelia-skin.jpg' },
+      { name: 'Hydrate Skin', img: '/assets/estheticians/template-hydrate-skin.jpg' },
+      { name: 'Glow Skin', img: '/assets/estheticians/template-glow-skin.jpg' },
+      { name: 'Perfect Skin', img: '/assets/estheticians/template-perfect-skin.jpg' },
+      { name: 'Skincare', img: '/assets/estheticians/template-skincare.jpg' },
+    ],
   },
   {
     id: 'business-coach',
@@ -24,6 +40,14 @@ export const PRICING_CATEGORIES = [
     img: '/assets/Template-Content-Social-Media-Stock-Business-Coach.png',
     tag: '95 assets',
     outsetaPlanUid: OUTSETA_PLAN_UIDS.starterBusinessCoach,
+    collections: [
+      { name: 'Sovereign Suite', img: '/assets/business-coach/template-sovereign-suite.jpg' },
+      { name: 'Femme Capital', img: '/assets/business-coach/template-femme-capital.jpg' },
+      { name: 'Elite Aura', img: '/assets/business-coach/template-elite-aura.jpg' },
+      { name: 'Prestige Presence', img: '/assets/business-coach/template-prestige-presence.jpg' },
+      { name: 'Elevated Vision', img: '/assets/business-coach/template-elevated-vision.jpg' },
+      { name: 'Power Edit', img: '/assets/business-coach/template-power-edit.jpg' },
+    ],
   },
   {
     id: 'aesthetic-medicine',
