@@ -73,11 +73,10 @@ export function CollectionsModal({ open, category, onClose }) {
             <h2 id="collections-modal-title" className="font-extrabold tracking-tight text-[24px] sm:text-[32px] leading-tight">
               {category.title}
             </h2>
-            <p className="hidden lg:block mt-1.5 text-[14px] text-ink/55 leading-relaxed">{category.sub}</p>
 
             <div className="my-5 sm:my-6 h-px bg-line" />
 
-            <div className="text-[12px] uppercase tracking-[0.18em] font-semibold text-ink/75 mb-3">
+            <div className="text-[12px] uppercase tracking-[0.18em] font-bold text-ink mb-3">
               What you get inside
             </div>
             <div className="relative">
@@ -98,7 +97,7 @@ export function CollectionsModal({ open, category, onClose }) {
                   ))}
                 </ul>
 
-                <div className="text-[12px] uppercase tracking-[0.18em] font-semibold text-ink/75 mb-3">
+                <div className="text-[12px] uppercase tracking-[0.18em] font-bold text-ink mb-3">
                   Monthly updates
                 </div>
                 <ul className="space-y-2">
@@ -165,9 +164,10 @@ export function CollectionsModal({ open, category, onClose }) {
                     alt={item.name}
                     className="block w-full h-auto card-img-hover"
                   />
-                  <span className="pointer-events-none absolute inset-0 lg:bg-ink/35 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200">
-                    <span className="absolute bottom-2 right-2 lg:inset-0 lg:bottom-auto lg:right-auto lg:m-auto w-8 h-8 lg:w-11 lg:h-11 rounded-full bg-white/95 text-ink grid place-items-center shadow-lift">
-                      <IconZoom size={18} />
+                  <span className="pointer-events-none absolute inset-0 lg:grid lg:place-items-center lg:bg-ink/35 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200">
+                    <span className="absolute bottom-2 right-2 lg:static w-8 h-8 lg:w-11 lg:h-11 rounded-full bg-white text-ink grid place-items-center shadow-lift">
+                      <IconZoom size={16} className="block lg:hidden" />
+                      <IconZoom size={18} className="hidden lg:block" />
                     </span>
                   </span>
                 </button>

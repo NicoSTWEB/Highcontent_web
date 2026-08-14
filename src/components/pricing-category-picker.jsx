@@ -59,7 +59,7 @@ export function PricingCategoryPicker({ categories }) {
               <div className="absolute inset-x-0 bottom-0 p-2.5 flex flex-col gap-2 text-white">
                 <div className="text-[13px] font-bold tracking-tight leading-tight">{c.title}</div>
                 <span className="inline-flex items-center justify-center gap-1 bg-ink text-white px-2.5 h-7 rounded-full text-[10px] font-semibold w-full">
-                  Select <IconArrow size={11} />
+                  Subscribe <IconArrow size={11} />
                 </span>
               </div>
             </button>

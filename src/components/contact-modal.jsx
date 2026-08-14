@@ -142,7 +142,7 @@ function PlanDetails({ plan, category }) {
 
       <div className="my-6 h-px bg-line" />
 
-      <div className="text-[12px] uppercase tracking-[0.18em] font-semibold text-ink/75 mb-3">
+      <div className="text-[12px] uppercase tracking-[0.18em] font-bold text-ink mb-3">
         What you get inside
       </div>
       <ul className="space-y-2 mb-5">
@@ -154,7 +154,7 @@ function PlanDetails({ plan, category }) {
         ))}
       </ul>
 
-      <div className="text-[12px] uppercase tracking-[0.18em] font-semibold text-ink/75 mb-3">
+      <div className="text-[12px] uppercase tracking-[0.18em] font-bold text-ink mb-3">
         Monthly updates
       </div>
       <ul className="space-y-2">

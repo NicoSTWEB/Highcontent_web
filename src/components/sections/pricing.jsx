@@ -145,7 +145,7 @@ export default function Pricing({ palette }) {
                     <PricingCategoryPicker categories={PRICING_CATEGORIES} />
                   ) : (
                     <>
-                      <div className="text-[12px] uppercase tracking-[0.18em] font-semibold text-ink/75 mb-3">What you get inside</div>
+                      <div className="text-[12px] uppercase tracking-[0.18em] font-bold text-ink mb-3">What you get inside</div>
                       <ul className="space-y-2 mb-5">
                         {p.inside.map(t => (
                           <li key={t} className="flex items-start gap-2.5 text-[14px] text-ink/80">
@@ -154,7 +154,7 @@ export default function Pricing({ palette }) {
                         ))}
                       </ul>
 
-                      <div className="text-[12px] uppercase tracking-[0.18em] font-semibold text-ink/75 mb-3">Monthly updates</div>
+                      <div className="text-[12px] uppercase tracking-[0.18em] font-bold text-ink mb-3">Monthly updates</div>
                       <ul className="space-y-2 mb-5">
                         {p.updates.map(t => (
                           <li key={t} className="flex items-start gap-2.5 text-[14px] text-ink/80">
