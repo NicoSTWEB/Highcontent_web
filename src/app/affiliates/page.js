@@ -61,10 +61,11 @@ const FAQS = [
   },
 ];
 
+const JOIN_HREF = 'https://mb-indremas.getrewardful.com';
+
 export default function AffiliatesPage() {
   const [contactOpen, setContactOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
-  const joinHref = 'mailto:contact@highcontent.io?subject=Affiliate%20program';
 
   return (
     <div className="relative">
@@ -103,7 +104,9 @@ export default function AffiliatesPage() {
               </p>
               <div className="mt-9 flex items-center justify-center gap-4 flex-wrap">
                 <a
-                  href={joinHref}
+                  href={JOIN_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-pill inline-flex items-center gap-2 bg-ink text-white px-5 h-10 rounded-full text-[14px] font-medium"
                 >
                   Apply to join <IconArrow size={16} />
@@ -221,7 +224,9 @@ export default function AffiliatesPage() {
               </p>
               <div className="mt-7 flex items-center justify-center flex-wrap gap-4">
                 <a
-                  href={joinHref}
+                  href={JOIN_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-pill inline-flex items-center gap-2 bg-ink text-white px-5 h-10 rounded-full text-[14px] font-medium"
                 >
                   Apply to join <IconArrow size={16} />
