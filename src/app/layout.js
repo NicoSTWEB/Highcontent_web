@@ -1,5 +1,6 @@
 import { DM_Sans, Instrument_Serif } from "next/font/google";
 import Script from "next/script";
+import { REWARDFUL_API_KEY } from "@/lib/rewardful";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -36,6 +37,10 @@ export default function RootLayout({ children }) {
           data-options="o_options"
         />
         {children}
+        <Script src="https://r.wdfl.co/rw.js" data-rewardful={REWARDFUL_API_KEY}></Script>
+        <Script id="rewardful-queue" strategy="beforeInteractive">
+          {`(function(w,r){w._rwq=r;w[r]=w[r]||function(){(w[r].q=w[r].q||[]).push(arguments)}})(window,'rewardful');`}
+        </Script>
       </body>
     </html>
   );

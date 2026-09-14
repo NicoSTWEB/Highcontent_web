@@ -17,7 +17,13 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="lg:col-span-7 grid sm:grid-cols-2 gap-8">
+        <div className="lg:col-span-7 grid sm:grid-cols-3 gap-8">
+          <div>
+            <div className="text-[11px] uppercase tracking-[0.2em] text-ink/45 font-medium mb-4">Company</div>
+            <ul className="space-y-2.5 text-[14px] text-ink/65">
+              <li><a href="/affiliates" className="hover:text-ink">Affiliate Program</a></li>
+            </ul>
+          </div>
           <div>
             <div className="text-[11px] uppercase tracking-[0.2em] text-ink/45 font-medium mb-4">Legal</div>
             <ul className="space-y-2.5 text-[14px] text-ink/65">

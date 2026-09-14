@@ -10,6 +10,11 @@ export default function sitemap() {
       priority: 1,
     },
     {
+      url: `${SITE_URL}/affiliates`,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
       url: `${SITE_URL}/privacy-policy`,
       changeFrequency: 'yearly',
       priority: 0.3,

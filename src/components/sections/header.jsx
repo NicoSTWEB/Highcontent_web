@@ -1,12 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { IconArrow, IconClose, IconMenu } from '@/components/icons';
 
 // ============================================================
 // HEADER
 // ============================================================
 export default function Header({ palette, onOpenContact }) {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+  const sectionHref = (id) => (isHome ? `#${id}` : `/#${id}`);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -60,7 +64,7 @@ export default function Header({ palette, onOpenContact }) {
           marginRight: 'auto',
         }}
       >
-        <a href="#top" className="flex items-center min-w-0">
+        <a href={isHome ? '#top' : '/'} className="flex items-center min-w-0">
           <img
             src="/assets/highcontent-logo.png"
             alt="Highcontent"
@@ -82,7 +86,7 @@ export default function Header({ palette, onOpenContact }) {
                 {n.label}
               </button>
             ) : (
-              <a key={n.id} href={`#${n.id}`} className="nav-link font-medium hover:text-ink">{n.label}</a>
+              <a key={n.id} href={sectionHref(n.id)} className="nav-link font-medium hover:text-ink">{n.label}</a>
             )
           ))}
         </nav>
@@ -90,7 +94,7 @@ export default function Header({ palette, onOpenContact }) {
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <a href="https://app.highcontent.io/" className="hidden md:inline text-[14.5px] font-medium text-ink/70 hover:text-ink">Log in</a>
           <a
-            href="#pricing"
+            href={sectionHref('pricing')}
             className="btn-pill inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-ink text-white px-3.5 sm:px-5 h-9 sm:h-10 rounded-full text-[13px] sm:text-[14px] font-medium whitespace-nowrap"
           >
             Get Started <IconArrow size={15} />
@@ -122,7 +126,7 @@ export default function Header({ palette, onOpenContact }) {
                   {n.label}
                 </button>
               ) : (
-                <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="py-2 font-medium">{n.label}</a>
+                <a key={n.id} href={sectionHref(n.id)} onClick={() => setOpen(false)} className="py-2 font-medium">{n.label}</a>
               )
             ))}
             <a
