@@ -23,7 +23,7 @@ export default function FinalCTA({ palette, onOpenContact }) {
           Ready to stop settling <span className="italic-serif font-normal">for average?</span>
         </h2>
         <p className="mt-3 text-gray-500 text-sm md:text-base max-w-[520px] mx-auto leading-[1.55]">
-          Highcontent is built for professionals who refuse to settle.
+          High content is built for professionals who refuse to settle.
         </p>
 
         <div className="mt-7 flex items-center justify-center flex-wrap">

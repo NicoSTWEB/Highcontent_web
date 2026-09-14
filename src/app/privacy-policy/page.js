@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { LegalPageShell } from '@/components/legal-page-shell';
 
 export const metadata = {
-  title: 'Privacy Policy — Highcontent',
-  description: 'How Highcontent collects, uses, and protects your personal information.',
+  title: 'Privacy Policy — High content',
+  description: 'How High content collects, uses, and protects your personal information.',
 };
 
 function Mail({ children = 'contact@highcontent.io' }) {
@@ -39,7 +39,7 @@ export default function PrivacyPolicyPage() {
   return (
     <LegalPageShell title="Privacy Policy" updated="August 12, 2026">
       <p>
-        Highcontent —{' '}
+        High content —{' '}
         <a href="https://www.highcontent.io" target="_blank" rel="noopener noreferrer">
           www.highcontent.io
         </a>
@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
       <p>
         This Privacy Policy explains how we collect, use, share and protect personal data when you
         visit www.highcontent.io, create an account, subscribe to a Plan, contact us or otherwise
-        use the Highcontent service (the &quot;Service&quot;).
+        use the High content service (the &quot;Service&quot;).
       </p>
       <p>
         We are committed to processing personal data lawfully, fairly and transparently, in
@@ -336,7 +336,7 @@ export default function PrivacyPolicyPage() {
           ['cookieyes-consent', 'CookieYes', 'Stores your consent choices and the categories you accepted', '12 months'],
           ['_ga', 'Google Analytics', 'Distinguishes unique visitors by assigning a pseudonymous client identifier', '24 months'],
           ['_ga_<404621828>', 'Google Analytics', 'Maintains session state for GA4', '24 months'],
-          ['Session / authentication cookies', 'Highcontent, Outseta', 'Keeps you logged in and secures your session', 'Session to 30 days'],
+          ['Session / authentication cookies', 'High content, Outseta', 'Keeps you logged in and secures your session', 'Session to 30 days'],
         ]}
       />
       <p>

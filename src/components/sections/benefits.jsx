@@ -43,7 +43,7 @@ const BeforeAfter = () => {
           <div className="px-7 lg:px-9 py-6 flex items-center justify-between" style={{ background: 'linear-gradient(135deg, #fff1f2, #fee2e2)' }}>
             <div>
               <div className="text-[11.5px] uppercase tracking-[0.22em] font-semibold text-rose-700/80 mb-1">Before</div>
-              <div className="text-[24px] sm:text-[28px] font-extrabold tracking-tight text-ink">Without Highcontent</div>
+              <div className="text-[24px] sm:text-[28px] font-extrabold tracking-tight text-ink">Without High content</div>
             </div>
             <span className="w-12 h-12 rounded-full bg-white/80 grid place-items-center text-rose-500 shadow-card"><IconX size={20}/></span>
           </div>
@@ -64,7 +64,7 @@ const BeforeAfter = () => {
           <div className="px-7 lg:px-9 py-6 flex items-center justify-between relative" style={{ background: 'linear-gradient(135deg, #ecfdf5, #d1fae5)' }}>
             <div>
               <div className="text-[11.5px] uppercase tracking-[0.22em] font-semibold text-emerald-700/85 mb-1">After</div>
-              <div className="text-[24px] sm:text-[28px] font-extrabold tracking-tight text-ink">With Highcontent</div>
+              <div className="text-[24px] sm:text-[28px] font-extrabold tracking-tight text-ink">With High content</div>
             </div>
             <span className="w-12 h-12 rounded-full bg-white/85 grid place-items-center text-emerald-600 shadow-card"><IconCheck size={20}/></span>
           </div>

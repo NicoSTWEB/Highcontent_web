@@ -23,7 +23,7 @@ export default function DashboardPreview() {
           <div className="relative mx-auto max-w-[1080px]">
             <img
               src="/assets/dashboard_screen.png"
-              alt="Highcontent dashboard with collections, stories, videos, and analytics"
+              alt="High content dashboard with collections, stories, videos, and analytics"
               className="w-full h-auto"
             />
             <div

@@ -7,7 +7,7 @@ export function LegalPageShell({ title, updated, children }) {
       <header className="border-b border-line bg-white/90 backdrop-blur-sm sticky top-0 z-40">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
           <Link href="/" className="flex items-center shrink-0">
-            <img src="/assets/highcontent-logo.png" alt="Highcontent" className="h-8 w-auto object-contain" />
+            <img src="/assets/highcontent-logo.png" alt="High content" className="h-8 w-auto object-contain" />
           </Link>
           <Link
             href="/"

@@ -5,7 +5,7 @@ import { ContactModal } from '@/components/contact-modal';
 import Header from '@/components/sections/header';
 import Footer from '@/components/sections/footer';
 import { Reveal } from '@/components/reveal';
-import { IconArrow, IconCheck, IconChevron } from '@/components/icons';
+import { IconArrow, IconCheck, IconChevron, IconUsers, IconChart } from '@/components/icons';
 
 const PALETTE = ['#C4B5FD', '#F9A8D4'];
 
@@ -23,7 +23,7 @@ const STEPS = [
   {
     n: '03',
     title: 'Earn on subscriptions',
-    desc: 'When a referred visitor becomes a paying Highcontent customer, commission is tracked automatically — including recurring billing.',
+    desc: 'When a referred visitor becomes a paying High content customer, commission is tracked automatically — including recurring billing.',
   },
 ];
 
@@ -34,7 +34,7 @@ const REASONS = [
   },
   {
     title: 'Recurring subscriptions',
-    desc: 'Highcontent is a monthly membership. Referrals that stay subscribed keep generating commission through Rewardful.',
+    desc: 'High content is a monthly membership. Referrals that stay subscribed keep generating commission through Rewardful.',
   },
   {
     title: 'Simple tracking',
@@ -45,11 +45,11 @@ const REASONS = [
 const FAQS = [
   {
     q: 'Who is this for?',
-    a: 'Agencies, social media managers, course creators, coaches, and anyone who already talks to professionals about content. You do not need to be a Highcontent customer to join.',
+    a: 'Agencies, social media managers, course creators, coaches, and anyone who already talks to professionals about content. You do not need to be a High content customer to join.',
   },
   {
     q: 'How does tracking work?',
-    a: 'Each affiliate gets a unique link. When someone visits Highcontent through that link, Rewardful records the referral and attributes the subscription if they sign up.',
+    a: 'Each affiliate gets a unique link. When someone visits High content through that link, Rewardful records the referral and attributes the subscription if they sign up.',
   },
   {
     q: 'How and when do I get paid?',
@@ -57,11 +57,16 @@ const FAQS = [
   },
   {
     q: 'Can I share this with clients?',
-    a: 'Yes. Many affiliates share Highcontent with clients who need a content system of their own, or with other professionals in their network.',
+    a: 'Yes. Many affiliates share High content with clients who need a content system of their own, or with other professionals in their network.',
   },
 ];
 
 const JOIN_HREF = 'https://mb-indremas.getrewardful.com';
+
+const COMMISSIONS = [
+  { plan: 'Starter plan referral', date: 'Monthly · €99', amount: '€29.70' },
+  { plan: 'Pro plan referral', date: 'Monthly · €159', amount: '€47.70' },
+];
 
 export default function AffiliatesPage() {
   const [contactOpen, setContactOpen] = useState(false);
@@ -97,7 +102,7 @@ export default function AffiliatesPage() {
                 Affiliate program
               </div>
               <h1 className="font-extrabold tracking-tight text-[38px] sm:text-[52px] lg:text-[64px] leading-[1.02] text-ink text-balance">
-                Earn by sharing <span className="italic-serif font-normal text-ink/90">Highcontent</span>
+                Earn by sharing <span className="italic-serif font-normal text-ink/90">High content</span>
               </h1>
               <p className="mt-7 text-[17px] lg:text-[19px] text-ink/60 max-w-[580px] mx-auto leading-[1.55]">
                 Recommend ready-to-post content to professionals. When they subscribe, you earn commission — tracked automatically with Rewardful.
@@ -123,7 +128,7 @@ export default function AffiliatesPage() {
                 How it works
               </span>
               <h2 className="font-extrabold tracking-tight text-[36px] sm:text-[48px] leading-[1.04] text-balance">
-                Three steps. Then your <span className="italic-serif font-normal">link</span> does the rest.
+                Our <span className="italic-serif font-normal">30%</span> affiliate program.
               </h2>
             </Reveal>
             <div className="grid md:grid-cols-3 gap-4 lg:gap-6">
@@ -140,9 +145,84 @@ export default function AffiliatesPage() {
 
         <section className="py-16 lg:py-20">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
+            <Reveal className="text-center max-w-[720px] mx-auto mb-14">
+              <span className="inline-block text-[11.5px] uppercase tracking-[0.22em] font-medium text-ink/55 mb-5">
+                Incentives
+              </span>
+              <h2 className="font-extrabold tracking-tight text-[36px] sm:text-[48px] leading-[1.04] text-balance">
+                What&apos;s the <span className="italic-serif font-normal">benefit</span>?
+              </h2>
+              <p className="mt-5 text-[16px] lg:text-[17px] text-ink/60 max-w-[560px] mx-auto leading-[1.55]">
+                Anyone who signs up through your unique link gets an exclusive discount. The more you share, the more you earn — every month.
+              </p>
+            </Reveal>
+
+            <div className="grid lg:grid-cols-2 gap-4 lg:gap-6 max-w-[1080px] mx-auto">
+              <Reveal className="rounded-[24px] border border-line bg-white p-7 lg:p-8">
+                <span className="w-10 h-10 rounded-xl bg-[#EDE9FE] text-ink/80 grid place-items-center">
+                  <IconUsers size={18} />
+                </span>
+                <div className="mt-5 text-[15px] font-medium text-ink/55">They save</div>
+                <div className="mt-1 text-[40px] sm:text-[44px] font-extrabold tracking-tight leading-none">20%</div>
+                <p className="mt-3 text-[14.5px] text-ink/60 leading-[1.55]">
+                  off the full monthly price, automatically applied at checkout.
+                </p>
+                <div className="mt-6 rounded-[18px] border border-line bg-bg2/80 p-4" aria-hidden="true">
+                  <div className="rounded-xl border border-line bg-white px-3.5 h-10 flex items-center text-[13.5px] text-ink/40">
+                    highcontent.io
+                  </div>
+                  <div className="mt-2 rounded-xl border border-line bg-white px-3.5 h-10 flex items-center text-[13.5px] text-ink/40">
+                    Email
+                  </div>
+                  <div className="mt-2 rounded-xl border border-line bg-white px-3.5 h-10 flex items-center justify-between text-[13.5px]">
+                    <span className="text-ink/70 font-medium">Starter · €99/month</span>
+                    <span className="text-ink/35 line-through">€99</span>
+                  </div>
+                  <div className="mt-3 flex items-center justify-between">
+                    <span className="inline-flex items-center justify-center bg-ink text-white px-4 h-8 rounded-full text-[12.5px] font-medium">
+                      Get Started
+                    </span>
+                    <span className="text-[18px] font-extrabold tracking-tight text-ink/85">−20%</span>
+                  </div>
+                </div>
+              </Reveal>
+
+              <Reveal className="rounded-[24px] border border-line bg-white p-7 lg:p-8">
+                <span className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 grid place-items-center">
+                  <IconChart size={18} />
+                </span>
+                <div className="mt-5 text-[15px] font-medium text-ink/55">You earn</div>
+                <div className="mt-1 text-[40px] sm:text-[44px] font-extrabold tracking-tight leading-none">30%</div>
+                <p className="mt-3 text-[14.5px] text-ink/60 leading-[1.55]">
+                  recurring commission based on their plan, every billing cycle.
+                </p>
+                <div className="mt-6 rounded-[18px] border border-line bg-bg2/80 p-4" aria-hidden="true">
+                  <div className="text-[12px] uppercase tracking-[0.16em] font-medium text-ink/40 mb-3">Transactions</div>
+                  <ul>
+                    {COMMISSIONS.map((row, i) => (
+                      <li
+                        key={`${row.plan}-${i}`}
+                        className={`flex items-start justify-between gap-4 py-3 ${i ? 'border-t border-line/80' : ''}`}
+                      >
+                        <div>
+                          <div className="text-[14px] font-semibold text-ink">{row.plan}</div>
+                          <div className="text-[12.5px] text-ink/45 mt-0.5">{row.date}</div>
+                        </div>
+                        <div className="text-[14.5px] font-semibold text-emerald-600 whitespace-nowrap">{row.amount}</div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 lg:py-20">
+          <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
             <Reveal className="max-w-[760px] mb-12">
               <span className="inline-block text-[11.5px] uppercase tracking-[0.22em] font-medium text-ink/55 mb-5">
-                Why promote Highcontent
+                Why promote High content
               </span>
               <h2 className="font-extrabold tracking-tight text-[36px] sm:text-[48px] leading-[1.04] text-balance">
                 A recommendation that actually <span className="italic-serif font-normal">helps</span>.
@@ -220,7 +300,7 @@ export default function AffiliatesPage() {
                 Ready to start <span className="italic-serif font-normal">referring</span>?
               </h2>
               <p className="mt-3 text-gray-500 text-sm md:text-base max-w-[520px] mx-auto leading-[1.55]">
-                Join the Highcontent affiliate program and get your unique tracking link.
+                Join the High content affiliate program and get your unique tracking link.
               </p>
               <div className="mt-7 flex items-center justify-center flex-wrap gap-4">
                 <a

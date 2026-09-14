@@ -67,7 +67,7 @@ export default function Header({ palette, onOpenContact }) {
         <a href={isHome ? '#top' : '/'} className="flex items-center min-w-0">
           <img
             src="/assets/highcontent-logo.png"
-            alt="Highcontent"
+            alt="High content"
             className={`w-auto max-w-[140px] sm:max-w-none object-contain transition-[height] duration-[450ms] ease-[cubic-bezier(.4,.2,.2,1)] ${
               scrolled ? 'h-[26px]' : 'h-8 md:h-10'
             }`}

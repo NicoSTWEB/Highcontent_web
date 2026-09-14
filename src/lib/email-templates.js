@@ -1,5 +1,5 @@
 const LOGO_PATH = '/assets/highcontent-logo.png';
-const DEFAULT_BRAND_NAME = 'Highcontent';
+const DEFAULT_BRAND_NAME = 'High content';
 
 function escapeHtml(value) {
   return String(value ?? '')
@@ -103,7 +103,7 @@ function buildEmailShell({ title, intro, fields, highlight, footerNote, logoUrl 
                 <p style="margin:0;color:#6b7280;font-size:13px;line-height:1.55;">
                   ${escapeHtml(
                     footerNote ||
-                      'You are receiving this email because a form was submitted on the Highcontent website.',
+                      'You are receiving this email because a form was submitted on the High content website.',
                   )}
                 </p>
               </td>
@@ -148,7 +148,7 @@ export function buildContactEmail(payload, options = {}) {
 
   const html = buildEmailShell({
     title: 'New website inquiry',
-    intro: 'Someone just reached out through the Highcontent contact form.',
+    intro: 'Someone just reached out through the High content contact form.',
     fields,
     highlight: 'Reply to this email to respond directly to the sender.',
     logoUrl: options.logoUrl || resolveEmailLogoUrl(options.origin),

@@ -24,6 +24,8 @@ const IconMenu = (p) => <Icon {...p}><path d="M4 7h16M4 12h16M4 17h16"/></Icon>;
 const IconClose = (p) => <Icon {...p}><path d="M6 6l12 12M18 6L6 18"/></Icon>;
 const IconPlay = (p) => <Icon fill="currentColor" stroke="none" {...p}><path d="M8 5v14l11-7z"/></Icon>;
 const IconZoom = (p) => <Icon {...p}><circle cx="11" cy="11" r="6"/><path d="M20 20l-3.5-3.5"/><path d="M11 8.2v5.6M8.2 11h5.6"/></Icon>;
+const IconUsers = (p) => <Icon {...p}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></Icon>;
+const IconChart = (p) => <Icon {...p}><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-7"/></Icon>;
 
 // Social / platform marks (filled, 24×24 viewBox)
 const BrandIcon = ({ size = 24, className = '', children }) => (
@@ -83,5 +85,6 @@ const IconCanva = ({ size = 24, className = '' }) => (
 export {
   Icon, IconPost, IconStory, IconHighlight, IconPhoto, IconVideo,
   IconCheck, IconX, IconChevron, IconArrow, IconSparkle, IconMenu, IconClose, IconPlay, IconZoom,
+  IconUsers, IconChart,
   IconCanva, IconInstagram, IconFacebook, IconLinkedin, IconPinterest, IconTiktok,
 };

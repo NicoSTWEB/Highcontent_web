@@ -25,7 +25,7 @@ function ContactDetails() {
 
   return (
     <div className="flex flex-col h-full">
-      <img src="/assets/highcontent-logo.png" alt="Highcontent" className="h-9 w-auto object-contain" />
+      <img src="/assets/highcontent-logo.png" alt="High content" className="h-9 w-auto object-contain" />
       <p className="mt-5 text-[15px] text-ink/60 leading-[1.55] max-w-[320px]">
         Ready-to-post social media content and realistic AI assets for professionals. Questions about plans, niches, or custom work — we&apos;re here to help.
       </p>
@@ -423,7 +423,7 @@ export function ContactModal({ open, onClose, plan, category, variant = 'plan' }
           <div className="p-7 sm:p-8 lg:p-9 bg-bg2/60 border-b lg:border-b-0 lg:border-r border-line">
             <h2 id="contact-modal-title" className="sr-only">
               {isContact
-                ? 'Contact Highcontent'
+                ? 'Contact High content'
                 : category
                   ? `${category.title} — ${plan.name}`
                   : `Contact us — ${plan.name}`}

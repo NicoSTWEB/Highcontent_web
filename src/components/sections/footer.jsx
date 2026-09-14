@@ -11,7 +11,7 @@ export default function Footer() {
     <div className="max-w-[1280px] mx-auto px-6 lg:px-10 py-20">
       <div className="grid lg:grid-cols-12 gap-10">
         <div className="lg:col-span-5">
-          <img src="/assets/highcontent-logo.png" alt="Highcontent" className="h-9 w-auto object-contain"/>
+          <img src="/assets/highcontent-logo.png" alt="High content" className="h-9 w-auto object-contain"/>
           <p className="mt-5 text-[15px] text-ink/60 max-w-[360px] leading-[1.55]">
             Ready-to-post social media content & realistic AI assets for professionals. Build a premium presence — without burning out.
           </p>
@@ -50,7 +50,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-16 pt-8 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px] text-ink/45">
-        <div>© 2026 Highcontent. All rights reserved.</div>
+        <div>© 2026 High content. All rights reserved.</div>
         <div className="flex items-center gap-5">
           <span>Made for professionals who post on purpose.</span>
         </div>

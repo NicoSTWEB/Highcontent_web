@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { LegalPageShell } from '@/components/legal-page-shell';
 
 export const metadata = {
-  title: 'Terms & Conditions — Highcontent',
-  description: 'Terms and conditions for using Highcontent social media content subscriptions and assets.',
+  title: 'Terms & Conditions — High content',
+  description: 'Terms and conditions for using High content social media content subscriptions and assets.',
 };
 
 function Mail({ children = 'contact@highcontent.io' }) {
@@ -14,7 +14,7 @@ export default function TermsAndConditionsPage() {
   return (
     <LegalPageShell title="Terms and Conditions" updated="August 12, 2026">
       <p>
-        Highcontent —{' '}
+        High content —{' '}
         <a href="https://www.highcontent.io" target="_blank" rel="noopener noreferrer">
           www.highcontent.io
         </a>
@@ -32,8 +32,8 @@ export default function TermsAndConditionsPage() {
         Email: <Mail />
       </p>
       <p>
-        In these Terms, &quot;we&quot;, &quot;us&quot;, &quot;our&quot; and &quot;Highcontent&quot; mean MB
-        &quot;Indremas&quot;, operating the brand and platform &quot;Highcontent&quot; at{' '}
+        In these Terms, &quot;we&quot;, &quot;us&quot;, &quot;our&quot; and &quot;High content&quot; mean MB
+        &quot;Indremas&quot;, operating the brand and platform &quot;High content&quot; at{' '}
         <a href="https://www.highcontent.io" target="_blank" rel="noopener noreferrer">
           www.highcontent.io
         </a>
@@ -41,7 +41,7 @@ export default function TermsAndConditionsPage() {
         creates an account, subscribes to a Plan or otherwise uses the Service.
       </p>
       <p>
-        These Terms govern your access to and use of the website, the Highcontent platform, the
+        These Terms govern your access to and use of the website, the High content platform, the
         content library, the Assets, and all related services (together, the &quot;Service&quot;).
       </p>
       <p>
@@ -271,8 +271,8 @@ export default function TermsAndConditionsPage() {
 
       <h3>7.4 No attribution required</h3>
       <p>
-        You are not required to credit Highcontent when using the Assets. You may not, however,
-        imply a partnership, endorsement or affiliation with Highcontent beyond your status as a
+        You are not required to credit High content when using the Assets. You may not, however,
+        imply a partnership, endorsement or affiliation with High content beyond your status as a
         customer, without our written consent.
       </p>
 
@@ -296,7 +296,7 @@ export default function TermsAndConditionsPage() {
         </li>
       </ol>
       <p>
-        8.3 You may not give End Clients access to your Highcontent account, nor resell access to
+        8.3 You may not give End Clients access to your High content account, nor resell access to
         the library, nor present the library itself (as opposed to finished creative work) as a
         deliverable.
       </p>
@@ -525,7 +525,7 @@ export default function TermsAndConditionsPage() {
       <h2>15. Intellectual property</h2>
       <p>
         15.1 The Service, the library, the curation, the selection and arrangement of the Assets,
-        the platform, the software, the Highcontent name, logo, visual identity and all associated
+        the platform, the software, the High content name, logo, visual identity and all associated
         intellectual property rights are and remain the exclusive property of MB &quot;Indremas&quot;
         and its licensors.
       </p>
