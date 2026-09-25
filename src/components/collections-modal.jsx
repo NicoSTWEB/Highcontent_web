@@ -4,20 +4,21 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { IconArrow, IconClose, IconZoom } from '@/components/icons';
 import { openOutsetaRegister } from '@/lib/outseta';
+import { useIsClient } from '@/lib/use-is-client';
 
 export function CollectionsModal({ open, category, onClose }) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useIsClient();
   const [zoomed, setZoomed] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
+  const [wasOpen, setWasOpen] = useState(open);
 
-  useEffect(() => setMounted(true), []);
-
-  useEffect(() => {
+  if (open !== wasOpen) {
+    setWasOpen(open);
     if (!open) {
       setZoomed(null);
       setShowDetails(false);
     }
-  }, [open]);
+  }
 
   useEffect(() => {
     if (!open) return;

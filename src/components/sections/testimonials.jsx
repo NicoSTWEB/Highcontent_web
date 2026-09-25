@@ -36,7 +36,7 @@ const TestimonialPill = ({ t }) => (
     </div>
     <div className="min-w-0 max-w-[320px]">
       <div className="text-[18px] sm:text-[19px] font-semibold text-ink leading-[1.3] tracking-tight">
-        "{t.quote}"
+        {`"${t.quote}"`}
       </div>
       <div className="mt-1.5 text-[10.5px] uppercase tracking-[0.22em] text-ink/45 font-semibold truncate">
         {t.name}

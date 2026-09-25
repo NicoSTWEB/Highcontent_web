@@ -1,6 +1,11 @@
+import { NextResponse } from 'next/server';
 import { buildContactEmail } from '@/lib/email-templates';
 
 export async function GET(request) {
+  if (process.env.NODE_ENV === 'production') {
+    return new NextResponse(null, { status: 404 });
+  }
+
   const origin = request.nextUrl.origin;
   const logoUrl = `${origin}/assets/highcontent-logo.png`;
 

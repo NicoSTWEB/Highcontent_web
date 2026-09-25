@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { IconArrow, IconCheck, IconX, IconChevron } from '@/components/icons';
-import { ContactModal } from '@/components/contact-modal';
 import { PricingCategoryPicker } from '@/components/pricing-category-picker';
 import { PRICING_CATEGORIES } from '@/data/categories';
 import { OUTSETA_PLAN_UIDS, openOutsetaRegister } from '@/lib/outseta';
@@ -63,7 +62,7 @@ const PLANS = [
     price: 'From €1,000',
     cycle: '',
     desc: 'Custom Social Media Branding System',
-    cta: 'Contact Us',
+    cta: 'Get Started',
     featured: false,
     inside: ['1 Custom Branded Canva Template','20 Feed Posts','10 Story Designs','30 Highlight Covers','AI Realistic Photo & Video Assets','Brand Color & Visual Direction','1 Monthly Strategy Call'],
     updates: ['+€500/month optional content support'],
@@ -78,11 +77,8 @@ const PLANS = [
   },
 ];
 
-const CUSTOM_PLAN = PLANS.find((p) => p.id === 'custom');
-
 export default function Pricing({ palette }) {
   const [expanded, setExpanded] = useState({});
-  const [contactOpen, setContactOpen] = useState(false);
   const [categoryPickerFor, setCategoryPickerFor] = useState(null);
   const toggle = (id) => setExpanded(s => ({ ...s, [id]: !s[id] }));
 
@@ -142,7 +138,7 @@ export default function Pricing({ palette }) {
                   <div className="my-6 h-px bg-line"></div>
 
                   {showCategories ? (
-                    <PricingCategoryPicker categories={PRICING_CATEGORIES} />
+                    <PricingCategoryPicker categories={PRICING_CATEGORIES} planId={p.id} />
                   ) : (
                     <>
                       <div className="text-[12px] uppercase tracking-[0.18em] font-bold text-ink mb-3">What you get inside</div>
@@ -190,15 +186,7 @@ export default function Pricing({ palette }) {
                   )}
 
                   {!showCategories && (
-                    p.id === 'starter' ? (
-                      <button
-                        type="button"
-                        onClick={() => setCategoryPickerFor(p.id)}
-                        className="btn-pill mt-auto w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium border border-ink text-ink"
-                      >
-                        {p.cta} <IconArrow size={15}/>
-                      </button>
-                    ) : p.id === 'pro' ? (
+                    p.id === 'pro' ? (
                       <button
                         type="button"
                         onClick={() => openOutsetaRegister(OUTSETA_PLAN_UIDS.pro)}
@@ -209,7 +197,7 @@ export default function Pricing({ palette }) {
                     ) : (
                       <button
                         type="button"
-                        onClick={() => setContactOpen(true)}
+                        onClick={() => setCategoryPickerFor(p.id)}
                         className="btn-pill mt-auto w-full inline-flex items-center justify-center gap-2 h-12 rounded-full text-[14.5px] font-medium border border-ink text-ink"
                       >
                         {p.cta} <IconArrow size={15}/>
@@ -227,11 +215,6 @@ export default function Pricing({ palette }) {
         </Reveal>
       </div>
 
-      <ContactModal
-        open={contactOpen}
-        onClose={() => setContactOpen(false)}
-        plan={CUSTOM_PLAN}
-      />
     </section>
   );
 };

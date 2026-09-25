@@ -20,7 +20,7 @@ export default function Categories({ onOpenContact }) {
         <div className="max-w-[760px]">
           <span className="inline-block text-[11.5px] uppercase tracking-[0.22em] font-medium text-ink/55 mb-5">Built for your niche</span>
           <h2 className="font-extrabold tracking-tight text-[40px] sm:text-[56px] leading-[1.04] text-balance">
-            Who it's <span className="italic-serif font-normal">made for</span>.
+            Who it&apos;s <span className="italic-serif font-normal">made for</span>.
           </h2>
         </div>
         <p className="text-[16px] text-ink/60 max-w-[420px] leading-[1.55]">

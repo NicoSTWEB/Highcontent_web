@@ -8,6 +8,7 @@ export const PRICING_CATEGORIES = [
     img: '/assets/Template-Content-Social-Media-Stock-Dentist.png',
     tag: '120 assets',
     outsetaPlanUid: OUTSETA_PLAN_UIDS.starterDentist,
+    customOutsetaPlanUid: OUTSETA_PLAN_UIDS.customDentist,
     collections: [
       { name: 'Clear Dental', img: '/assets/dentist/template-clear-dental.jpg' },
       { name: 'Noble Smile', img: '/assets/dentist/template-noble-smile.jpg' },
@@ -24,6 +25,7 @@ export const PRICING_CATEGORIES = [
     img: '/assets/Template-%26-Content-Social-Media-Stock-Dermatology.png',
     tag: '110 assets',
     outsetaPlanUid: OUTSETA_PLAN_UIDS.starterEsthetician,
+    customOutsetaPlanUid: OUTSETA_PLAN_UIDS.customEsthetician,
     collections: [
       { name: 'Lumea Skin', img: '/assets/estheticians/template-lumea-skin.jpg' },
       { name: 'Orelia Skin', img: '/assets/estheticians/template-orelia-skin.jpg' },
@@ -40,6 +42,7 @@ export const PRICING_CATEGORIES = [
     img: '/assets/Template-Content-Social-Media-Stock-Business-Coach.png',
     tag: '95 assets',
     outsetaPlanUid: OUTSETA_PLAN_UIDS.starterBusinessCoach,
+    customOutsetaPlanUid: OUTSETA_PLAN_UIDS.customBusinessCoach,
     collections: [
       { name: 'Sovereign Suite', img: '/assets/business-coach/template-sovereign-suite.jpg' },
       { name: 'Femme Capital', img: '/assets/business-coach/template-femme-capital.jpg' },
@@ -56,6 +59,7 @@ export const PRICING_CATEGORIES = [
     img: '/assets/Template-Content-Social-Media-Stock-Aesthetic-Clinics.png',
     tag: '140 assets',
     outsetaPlanUid: null,
+    customOutsetaPlanUid: null,
     comingSoon: true,
   },
 ];

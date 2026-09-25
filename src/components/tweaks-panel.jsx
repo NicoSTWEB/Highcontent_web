@@ -175,7 +175,8 @@ function TweaksPanel({ title = 'Tweaks', noDeckControls = false, children }) {
     setRailVisible(on);
     window.postMessage({ type: '__deck_rail_visible', on }, '*');
   };
-  const offsetRef = useRef({ x: 16, y: 16 });
+  const [offset, setOffset] = useState({ x: 16, y: 16 });
+  const offsetRef = useRef(offset);
   const PAD = 16;
 
   const clampToViewport = useCallback(() => {
@@ -184,12 +185,12 @@ function TweaksPanel({ title = 'Tweaks', noDeckControls = false, children }) {
     const w = panel.offsetWidth, h = panel.offsetHeight;
     const maxRight = Math.max(PAD, window.innerWidth - w - PAD);
     const maxBottom = Math.max(PAD, window.innerHeight - h - PAD);
-    offsetRef.current = {
+    const next = {
       x: Math.min(maxRight, Math.max(PAD, offsetRef.current.x)),
       y: Math.min(maxBottom, Math.max(PAD, offsetRef.current.y)),
     };
-    panel.style.right = offsetRef.current.x + 'px';
-    panel.style.bottom = offsetRef.current.y + 'px';
+    offsetRef.current = next;
+    setOffset(next);
   }, []);
 
   useEffect(() => {
@@ -247,7 +248,7 @@ function TweaksPanel({ title = 'Tweaks', noDeckControls = false, children }) {
     <>
       <style>{__TWEAKS_STYLE}</style>
       <div ref={dragRef} className="twk-panel" data-noncommentable=""
-           style={{ right: offsetRef.current.x, bottom: offsetRef.current.y }}>
+           style={{ right: offset.x, bottom: offset.y }}>
         <div className="twk-hd" onMouseDown={onDragStart}>
           <b>{title}</b>
           <button className="twk-x" aria-label="Close tweaks"
@@ -318,7 +319,9 @@ function TweakRadio({ label, value, options, onChange }) {
   // The active value is read by pointer-move handlers attached for the lifetime
   // of a drag — ref it so a stale closure doesn't fire onChange for every move.
   const valueRef = useRef(value);
-  valueRef.current = value;
+  useEffect(() => {
+    valueRef.current = value;
+  }, [value]);
 
   // Segments wrap mid-word once per-segment width runs out. The track is
   // ~248px (280 panel − 28 body pad − 4 seg pad), each button loses 12px
@@ -350,13 +353,16 @@ function TweakRadio({ label, value, options, onChange }) {
   };
 
   const onPointerDown = (e) => {
+    const select = (next) => {
+      if (next === valueRef.current) return;
+      valueRef.current = next;
+      onChange(next);
+    };
     setDragging(true);
-    const v0 = segAt(e.clientX);
-    if (v0 !== valueRef.current) onChange(v0);
+    select(segAt(e.clientX));
     const move = (ev) => {
       if (!trackRef.current) return;
-      const v = segAt(ev.clientX);
-      if (v !== valueRef.current) onChange(v);
+      select(segAt(ev.clientX));
     };
     const up = () => {
       setDragging(false);

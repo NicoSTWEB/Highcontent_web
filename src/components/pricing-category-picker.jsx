@@ -3,7 +3,10 @@
 import { IconArrow } from '@/components/icons';
 import { openOutsetaRegister } from '@/lib/outseta';
 
-export function PricingCategoryPicker({ categories }) {
+export function PricingCategoryPicker({ categories, planId = 'starter' }) {
+  const planUidFor = (category) =>
+    planId === 'custom' ? category.customOutsetaPlanUid : category.outsetaPlanUid;
+
   return (
     <div className="flex flex-col flex-1 min-h-0">
       <p className="text-[12px] uppercase tracking-[0.18em] font-semibold text-ink/75 mb-3">
@@ -11,6 +14,7 @@ export function PricingCategoryPicker({ categories }) {
       </p>
       <div className="grid grid-cols-2 gap-2.5 flex-1">
         {categories.map((c) => {
+          const planUid = planUidFor(c);
           const cardClass =
             'group relative text-left rounded-[14px] overflow-hidden border border-line bg-ink aspect-[4/5] min-h-[120px]';
           const overlay = (
@@ -30,7 +34,7 @@ export function PricingCategoryPicker({ categories }) {
             </>
           );
 
-          if (!c.outsetaPlanUid) {
+          if (!planUid) {
             return (
               <div
                 key={c.id}
@@ -52,7 +56,7 @@ export function PricingCategoryPicker({ categories }) {
             <button
               key={c.id}
               type="button"
-              onClick={() => openOutsetaRegister(c.outsetaPlanUid)}
+              onClick={() => openOutsetaRegister(planUid)}
               className={`${cardClass} focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/30`}
             >
               {overlay}

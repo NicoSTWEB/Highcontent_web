@@ -28,7 +28,7 @@ export default function FAQ() {
         <Reveal className="text-center max-w-[760px] mx-auto mb-14">
           <span className="inline-block text-[11.5px] uppercase tracking-[0.22em] font-medium text-ink/55 mb-5">FAQ</span>
           <h2 className="font-extrabold tracking-tight text-[40px] sm:text-[56px] leading-[1.04] text-balance">
-            Got <span className="italic-serif font-normal">questions</span>? We've got <span className="italic-serif font-normal">answers</span>.
+            Got <span className="italic-serif font-normal">questions</span>? We&apos;ve got <span className="italic-serif font-normal">answers</span>.
           </h2>
         </Reveal>
 

@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { IconArrow, IconClose } from '@/components/icons';
+import { useIsClient } from '@/lib/use-is-client';
 
 function ContactDetails() {
   const items = [
@@ -173,7 +174,12 @@ function ContactForm({ onClose, plan, category, variant = 'plan' }) {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState('');
+  const startedAt = useRef(0);
   const isContact = variant === 'contact';
+
+  useEffect(() => {
+    startedAt.current = Date.now();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -194,6 +200,8 @@ function ContactForm({ onClose, plan, category, variant = 'plan' }) {
           message: data.get('message'),
           plan: plan?.name || '',
           category: category?.title || '',
+          company_website: data.get('company_website'),
+          startedAt: startedAt.current,
         }),
       });
 
@@ -243,7 +251,7 @@ function ContactForm({ onClose, plan, category, variant = 'plan' }) {
     'w-full h-11 px-4 rounded-xl border border-line bg-white text-[14px] text-ink placeholder:text-ink/35 outline-none focus:border-ink/40 focus:ring-2 focus:ring-ink/5 transition';
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col h-full">
+    <form onSubmit={handleSubmit} className="relative flex flex-col h-full">
       <h3 className="font-bold text-[22px] tracking-tight text-ink">
         {isContact ? 'Contact us' : 'Get started'}
       </h3>
@@ -257,6 +265,17 @@ function ContactForm({ onClose, plan, category, variant = 'plan' }) {
               : 'Tell us about your business and we\'ll tailor a custom package for you.'}
       </p>
       {nicheLine ? <p className="mt-2 text-[12px] font-medium text-ink/45">{nicheLine}</p> : null}
+
+      <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="company-website">Company website</label>
+        <input
+          id="company-website"
+          name="company_website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
 
       <div className="mt-6 space-y-4 flex-1">
         <div>
@@ -375,10 +394,8 @@ function ContactForm({ onClose, plan, category, variant = 'plan' }) {
 }
 
 export function ContactModal({ open, onClose, plan, category, variant = 'plan' }) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useIsClient();
   const isContact = variant === 'contact';
-
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (!open) return;
