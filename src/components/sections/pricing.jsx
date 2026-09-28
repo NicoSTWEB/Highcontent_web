@@ -34,6 +34,7 @@ const PLANS = [
     ],
     cons: ['Not for client work','Not for resale'],
     ideal: 'Professionals growing their brand without hiring a designer.',
+    footnote: 'All plans auto-renew. Cancel anytime before the next billing cycle.',
   },
   {
     id: 'pro',
@@ -54,18 +55,20 @@ const PLANS = [
     ],
     cons: ['Not for resale or redistribution'],
     ideal: 'Agencies and SMMs running 3+ clients at a time.',
+    footnote: 'All plans auto-renew. Cancel anytime before the next billing cycle.',
   },
   {
     id: 'custom',
     name: 'Custom',
     tag: 'Built Specifically For Your Business',
-    price: 'From €1,000',
-    cycle: '',
+    price: '€500',
+    cycle: '/month',
+    priceNote: '+ €500 one-time setup fee',
     desc: 'Custom Social Media Branding System',
     cta: 'Get Started',
     featured: false,
     inside: ['1 Custom Branded Canva Template','20 Feed Posts','10 Story Designs','30 Highlight Covers','AI Realistic Photo & Video Assets','Brand Color & Visual Direction','1 Monthly Strategy Call'],
-    updates: ['+€500/month optional content support'],
+    updates: ['20 New Feed Posts','20 New Captions (LT & ENG)','10 New Story Designs','New AI-Generated Realistic Photo & Video Assets'],
     pros: [
       'Fully customized for your brand',
       'Professional and visually consistent',
@@ -74,6 +77,7 @@ const PLANS = [
     ],
     cons: [],
     ideal: 'Businesses that want a premium presence — done for them.',
+    footnote: 'Cancel 15 days before your next monthly renewal.',
   },
 ];
 
@@ -92,13 +96,14 @@ export default function Pricing({ palette }) {
           </h2>
         </Reveal>
 
-        <Reveal className="mt-12 grid lg:grid-cols-3 gap-5 lg:gap-6 items-start">
+        <Reveal className="mt-12 grid md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6 items-start">
           {PLANS.map((p) => {
             const isOpen = !!expanded[p.id];
             const showCategories = categoryPickerFor === p.id;
             return (
-              <div key={p.id}
-                   className={`relative rounded-[24px] border bg-white p-7 lg:p-8 transition flex flex-col ${p.featured ? 'border-transparent shadow-lift' : 'border-line hover:shadow-card'}`}
+              <div key={p.id} className="flex flex-col">
+              <div
+                   className={`@container relative rounded-[24px] border bg-white p-7 lg:p-8 transition flex flex-col ${p.featured ? 'border-transparent shadow-lift' : 'border-line hover:shadow-card'}`}
                    style={p.featured ? {boxShadow: '0 18px 50px -20px rgba(196,181,253,0.6), 0 0 0 1px rgba(196,181,253,0.4)'} : {}}>
                 {p.featured && (
                   <div className="absolute inset-0 rounded-[24px] pointer-events-none" style={{background: 'linear-gradient(180deg, rgba(237,233,254,0.6), rgba(252,231,243,0.25) 60%, transparent)'}}></div>
@@ -110,18 +115,21 @@ export default function Pricing({ palette }) {
                     {p.id === 'pro' && <span className="text-[11px] px-2 py-0.5 rounded-full font-semibold text-white" style={{background:'linear-gradient(95deg, #6d5fd1, #d97ab1)'}}>Ideal for Pros</span>}
                     {p.id === 'custom' && <span className="text-[11px] px-2 py-0.5 rounded-full bg-ink/5 text-ink font-medium border border-line">Made for you</span>}
                   </div>
-                  <div className="mt-4 flex items-baseline justify-between gap-2 whitespace-nowrap">
-                    <div className="flex items-baseline gap-1.5 min-w-0">
-                      {p.price.startsWith('From ') ? (
-                        <>
-                          <span className="text-[15px] font-medium text-ink/55">From</span>
-                          <span className="text-[34px] sm:text-[38px] font-extrabold tracking-tight leading-none">{p.price.replace('From ', '')}</span>
-                        </>
-                      ) : (
-                        <span className="text-[38px] sm:text-[42px] font-extrabold tracking-tight leading-none">{p.price}</span>
-                      )}
-                    </div>
-                    <span className="text-[13.5px] text-ink/55 shrink-0">{p.cycle}</span>
+                  <div className="mt-4 flex items-baseline gap-1.5 whitespace-nowrap min-w-0">
+                    {p.price.startsWith('From ') ? (
+                      <>
+                        <span className="text-[15px] font-medium text-ink/55">From</span>
+                        <span className="text-[34px] sm:text-[38px] font-extrabold tracking-tight leading-none">{p.price.replace('From ', '')}</span>
+                      </>
+                    ) : (
+                      <span className={`${p.priceNote ? 'text-[28px] @min-[275px]:text-[32px] @min-[310px]:text-[38px] @min-[480px]:text-[42px]' : 'text-[38px] sm:text-[42px]'} font-extrabold tracking-tight leading-none shrink-0`}>{p.price}</span>
+                    )}
+                    {p.cycle ? (
+                      <span className="text-[13.5px] text-ink/55 shrink-0">{p.cycle}</span>
+                    ) : null}
+                    {p.priceNote ? (
+                      <span className="text-[11px] @min-[480px]:text-[12px] text-ink/50 leading-none">{p.priceNote}</span>
+                    ) : null}
                   </div>
                   {showCategories ? (
                     <button
@@ -206,12 +214,10 @@ export default function Pricing({ palette }) {
                   )}
                 </div>
               </div>
+              <p className="mt-4 px-2 text-center text-[13px] leading-relaxed text-ink/55">{p.footnote}</p>
+              </div>
             );
           })}
-        </Reveal>
-
-        <Reveal className="mt-10 text-center text-[13px] text-ink/55">
-          All plans auto-renew. Cancel anytime before the next billing cycle.
         </Reveal>
       </div>
 
