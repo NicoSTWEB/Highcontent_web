@@ -34,7 +34,7 @@ const PLANS = [
     ],
     cons: ['Not for client work','Not for resale'],
     ideal: 'Professionals growing their brand without hiring a designer.',
-    footnote: 'All plans auto-renew. Cancel anytime before the next billing cycle.',
+    footnote: 'Auto-renew. Cancel anytime before the next billing cycle.',
   },
   {
     id: 'pro',
@@ -55,7 +55,7 @@ const PLANS = [
     ],
     cons: ['Not for resale or redistribution'],
     ideal: 'Agencies and SMMs running 3+ clients at a time.',
-    footnote: 'All plans auto-renew. Cancel anytime before the next billing cycle.',
+    footnote: 'Auto-renew. Cancel anytime before the next billing cycle.',
   },
   {
     id: 'custom',
