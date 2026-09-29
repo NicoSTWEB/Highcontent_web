@@ -67,7 +67,7 @@ const PLANS = [
     desc: 'Custom Social Media Branding System',
     cta: 'Get Started',
     featured: false,
-    inside: ['1 Custom Branded Canva Template','20 Feed Posts','10 Story Designs','30 Highlight Covers','AI Realistic Photo & Video Assets','Brand Color & Visual Direction','1 Monthly Strategy Call'],
+    inside: ['1 Custom-Branded Canva Template','20 Feed Posts','20 Captions (LT & ENG)','10 Story Designs','9 Highlight Covers','20 AI-Generated Realistic Photo & Video Assets','Brand Colors & Visual Direction','1 Monthly Strategy Call','Full Access to the Content Plan Starter'],
     updates: ['20 New Feed Posts','20 New Captions (LT & ENG)','10 New Story Designs','New AI-Generated Realistic Photo & Video Assets'],
     pros: [
       'Fully customized for your brand',
